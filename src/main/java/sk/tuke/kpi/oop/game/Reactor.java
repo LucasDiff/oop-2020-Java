@@ -13,7 +13,7 @@ public class Reactor extends AbstractActor {
     private Animation normalAnimation;
     private Animation Animationishot;
     private Animation Animationisbroken;
-    private Boolean isRunning;
+    private Boolean isRunninggg;
     private int temperature;
     private int damage;
     private int c = 0;
@@ -23,9 +23,9 @@ public class Reactor extends AbstractActor {
         temperature = 0;
         if (c == 1){
             temperature = 1;
-            isRunning = true;
+            isRunninggg = true;
         }
-        isRunning = false;
+        isRunninggg = false;
         setUpAnimations();
         setAnimation(offAnimation);
     }
@@ -163,7 +163,7 @@ public class Reactor extends AbstractActor {
 
     public void turnOff() {
         int c = 0;
-        isRunning = false;
+        isRunninggg = false;
         if (damage < 100 && c == 0) {
             setAnimation(new Animation(
                 "sprites/reactor.png",
@@ -178,7 +178,7 @@ public class Reactor extends AbstractActor {
     public void turnOn() {
         int c = 0;
         if (damage < 100 && c == 0) {
-            isRunning = true;
+            isRunninggg = true;
         }
         updateAnimation();
     }
