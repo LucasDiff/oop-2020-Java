@@ -1,12 +1,11 @@
 package sk.tuke.kpi.oop.game.items;
 
-import sk.tuke.kpi.gamelib.Scene;
-import sk.tuke.kpi.gamelib.graphics.Animation;
-import sk.tuke.kpi.gamelib.graphics.Point;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import sk.tuke.kpi.gamelib.Actor;
-
+import sk.tuke.kpi.gamelib.Scene;
+import sk.tuke.kpi.gamelib.graphics.Animation;
+import sk.tuke.kpi.gamelib.graphics.Point;
 
 public class Hammer {
     private Animation normalAnimation;
