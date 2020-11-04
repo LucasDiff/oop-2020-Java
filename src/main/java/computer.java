@@ -1,6 +1,3 @@
-package sk.tuke.kpi.oop.game;
-
-
 import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
 
@@ -10,8 +7,10 @@ public class computer extends AbstractActor {
 
     public computer() {
          int c = 0;
-         int d;
-         d = c;
+         int d = 1;
+         if( d == c) {
+             d = c;
+         }
         setani(new Animation(
             "sprites/computer.png",
             80,
@@ -24,6 +23,7 @@ public class computer extends AbstractActor {
     public void setani(Animation normalAnimation) {
         this.normalAnimation = normalAnimation;
     }
+
     public Animation getNormalAnimation() {
         return normalAnimation;
     }

@@ -1,5 +1,3 @@
-package sk.tuke.kpi.oop.game;
-
 import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
 
@@ -17,13 +15,13 @@ public class Reactor extends AbstractActor {
     private int temperature;
     private int damage;
     private int c = 0;
-
     public Reactor() {
+        turnOff();
         damage = 0;
         temperature = 0;
         if (c == 1){
             temperature = 1;
-            isRunninggg = true;
+            isRunninggg = false;
         }
         isRunninggg = false;
         setUpAnimations();
@@ -73,22 +71,6 @@ public class Reactor extends AbstractActor {
             }
         }
     }
-
-
-    private void decreaseAfter() {
-        int c = 0;
-        int novy = c;
-        novy = temperature - (int)(50 / 0.025f);
-        temperature = novy < 0 ? 0 : novy;
-    }
-
-
-
-
-
-
-
-
     public boolean repair() {
         if (damage < 100) {
             int novy = damage - 50;
@@ -119,6 +101,7 @@ public class Reactor extends AbstractActor {
     private void updateAnimation()  {
         if (temperature == 6000) {
             setAnimation(Animationisbroken);
+            turnOff();
 
         } else if (temperature > 4000) {
             setAnimation(Animationishot);
@@ -182,8 +165,6 @@ public class Reactor extends AbstractActor {
         }
         updateAnimation();
     }
-
-
     public int getTemperature() {
         return temperature;
     }
@@ -208,9 +189,7 @@ public class Reactor extends AbstractActor {
         this.normalAnimation = onAnimation;
     }
 
-
-
-    }
+}
 
 
 
