@@ -28,20 +28,13 @@ public class Reactor extends AbstractActor {
         setAnimation(offAnimation);
     }
 
-    private void repairing() {
-        int novy = damage - 50;
-        if(novy < 0){
-            damage = 0;
-        }else{
-            damage = novy;
-        }
-    }
+
     public void decreaseTemperature(int decrement) {
-        int c = 0;
-        if (c == 0) {
+
             if (decrement >= 0 && damage != 100) {
                 int novy = temperature - decrement;
                 if (damage >= 50) {
+
                     novy += (decrement / 2);
                 }
                 if (novy > 0) {
@@ -51,12 +44,11 @@ public class Reactor extends AbstractActor {
                 }
                 updateAnimation();
             }
-        }
+
     }
 
     public void increaseTemperature(int increment) {
-        int c = 0;
-        if (c == 0) {
+
             if (increment >= 0) {
                 int novy = getNewTemperature(increment);
                 if (novy > 6000) {
@@ -68,7 +60,7 @@ public class Reactor extends AbstractActor {
                     damage = (int) ((temperature - 2000) * 0.025f);
                 }
                 updateAnimation();
-            }
+
         }
     }
     public boolean repair() {
