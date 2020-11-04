@@ -18,14 +18,14 @@ public class Computer extends AbstractActor {
         );
         setAnimation(getNormalAnimation());
     }
-
+    public void setNormalAnimation(Animation normalAnimation) {
+        this.normalAnimation = normalAnimation;
+    }
     public Animation getNormalAnimation() {
         return normalAnimation;
     }
 
-    public void setNormalAnimation(Animation normalAnimation) {
-        this.normalAnimation = normalAnimation;
-    }
+
 
 
 
