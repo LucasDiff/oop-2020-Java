@@ -1,6 +1,7 @@
-package sk.tuke.kpi.oop.game.tools;
+package sk.tuke.kpi.oop.game.tool;
 
 import sk.tuke.kpi.gamelib.graphics.Animation;
+import sk.tuke.kpi.oop.game.tool.BreakableTool;
 
 public class Hammer  extends BreakableTool {
 
