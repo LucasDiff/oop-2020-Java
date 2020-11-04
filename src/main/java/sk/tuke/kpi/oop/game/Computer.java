@@ -9,14 +9,14 @@ public class Computer extends AbstractActor {
     private boolean maybe;
 
     public Computer() {
-        setNormalAnimation(new Animation(
+        this.setNormalAnimation(new Animation(
             "sprites/computer.png",
             80,
             48,
             0.2f,
             Animation.PlayMode.LOOP_PINGPONG)
         );
-        setAnimation(getNormalAnimation());
+        this.setAnimation(getNormalAnimation());
     }
     public void setNormalAnimation(Animation normalAnimation) {
         this.normalAnimation = normalAnimation;

@@ -11,8 +11,8 @@ public class Cooler extends AbstractActor implements Switchable {
 
     public Cooler(Reactor reactor) {
         this.reactor = reactor;
-        isWorking = false;
-        setAnimation(new Animation(
+        this.isWorking = false;
+        this.setAnimation(new Animation(
             "sprites/fan.png",
             32,
             32,
@@ -28,7 +28,7 @@ public class Cooler extends AbstractActor implements Switchable {
     }
     @Override
     public void turnOn() {
-        isWorking = true;
+        this.isWorking = true;
     }
 
     @Override
@@ -38,6 +38,6 @@ public class Cooler extends AbstractActor implements Switchable {
 
     @Override
     public void turnOff() {
-        isWorking = false;
+        this.isWorking = false;
     }
 }

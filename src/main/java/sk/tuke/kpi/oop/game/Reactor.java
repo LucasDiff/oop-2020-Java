@@ -25,9 +25,9 @@ public class Reactor extends AbstractActor implements Switchable, Repairable{
             temperature = 1;
             isRunninggg = false;
         }
-        isRunninggg = false;
-        setUpAnimations();
-        setAnimation(offAnimation);
+        this.isRunninggg = false;
+        this.setUpAnimations();
+        this.setAnimation(offAnimation);
     }
 
 
@@ -44,7 +44,7 @@ public class Reactor extends AbstractActor implements Switchable, Repairable{
                 } else {
                     temperature = 0;
                 }
-                updateAnimation();
+                this.updateAnimation();
             }
 
     }
@@ -61,7 +61,7 @@ public class Reactor extends AbstractActor implements Switchable, Repairable{
                 if (temperature > 2000) {
                     damage = (int) ((temperature - 2000) * 0.025f);
                 }
-                updateAnimation();
+                this.updateAnimation();
 
         }
     }
@@ -95,12 +95,12 @@ public class Reactor extends AbstractActor implements Switchable, Repairable{
     private void updateAnimation()  {
         if (temperature == 6000) {
             setAnimation(Animationisbroken);
-            turnOff();
+            this.turnOff();
 
         } else if (temperature > 4000) {
-            setAnimation(Animationishot);
+            this.setAnimation(Animationishot);
         } else {
-            setAnimation(normalAnimation);
+            this.setAnimation(normalAnimation);
         }
     }
 
@@ -144,9 +144,9 @@ public class Reactor extends AbstractActor implements Switchable, Repairable{
 
     public void turnOff() {
         int c = 0;
-        isRunninggg = false;
+        this.isRunninggg = false;
         if (damage < 100 && c == 0) {
-            setAnimation(new Animation(
+            this.setAnimation(new Animation(
                 "sprites/reactor.png",
                 80,
                 80,
@@ -159,9 +159,9 @@ public class Reactor extends AbstractActor implements Switchable, Repairable{
     public void turnOn() {
         int c = 0;
         if (damage < 100 && c == 0) {
-            isRunninggg = true;
+            this.isRunninggg = true;
         }
-        updateAnimation();
+        this.updateAnimation();
     }
     public int getTemperature() {
         return temperature;
