@@ -6,7 +6,7 @@ import sk.tuke.kpi.gamelib.graphics.Animation;
 
 
 
-public class Reactor extends AbstractActor {
+public class Reactor extends AbstractActor implements Switchable, Repairable{
 
 
     private Animation offAnimation;
