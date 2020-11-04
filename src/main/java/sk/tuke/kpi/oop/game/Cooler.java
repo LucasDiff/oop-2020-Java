@@ -1,18 +1,20 @@
 package sk.tuke.kpi.oop.game;
 
+import org.jetbrains.annotations.NotNull;
+import sk.tuke.kpi.gamelib.Scene;
 import sk.tuke.kpi.gamelib.framework.AbstractActor;
-
 import sk.tuke.kpi.gamelib.graphics.Animation;
 
 public class Cooler extends AbstractActor implements Switchable {
 
-    private Reactor reactor;
     private boolean isWorking;
+    private Reactor reactor;
 
     public Cooler(Reactor reactor) {
         this.reactor = reactor;
-        this.isWorking = false;
-        this.setAnimation(new Animation(
+        isWorking = false;
+
+        setAnimation(new Animation(
             "sprites/fan.png",
             32,
             32,
@@ -21,23 +23,32 @@ public class Cooler extends AbstractActor implements Switchable {
         ));
     }
 
-    public void coolReactor() {
-        if (reactor != null && isWorking) {
-            reactor.decreaseTemperature(1);
-        }
-    }
-    @Override
-    public void turnOn() {
-        this.isWorking = true;
-    }
-
-    @Override
-    public boolean isOn() {
-        return isWorking;
+    public Reactor getReactor() {
+        return reactor;
     }
 
     @Override
     public void turnOff() {
-        this.isWorking = false;
+        isWorking = false;
+    }
+
+    @Override
+    public boolean zapnute() {
+        return isWorking;
+    }
+
+    @Override
+    public void turnOn() {
+        isWorking = true;
+    }
+
+    @Override
+    public void addedToScene(@NotNull Scene scene) {
+    }
+
+    public void coolReactor() {
+        if (reactor != null && isWorking) {
+            reactor.decreaseTemperature(1);
+        }
     }
 }
