@@ -1,3 +1,5 @@
+package tools;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import sk.tuke.kpi.gamelib.Actor;
@@ -5,12 +7,12 @@ import sk.tuke.kpi.gamelib.Scene;
 import sk.tuke.kpi.gamelib.graphics.Animation;
 import sk.tuke.kpi.gamelib.graphics.Point;
 
-public class Hammer {
+public class Hammer  extends BreakableTool {
+
     private Animation normalAnimation;
 
-
-
-    public Hammer() {
+    public Hammer(int usesLeft) {
+        super(usesLeft);
         setAnimation(new Animation(
             "sprites/hammer.png",
             16,
@@ -19,13 +21,8 @@ public class Hammer {
             Animation.PlayMode.ONCE
         ));
     }
-
-    private void setAnimation(Animation normalAnimation) {
-        this.normalAnimation = normalAnimation;
-    }
-
-    public Hammer(int usesLeft) {
-
+    public Hammer() {
+        super(1);
         setAnimation(new Animation(
             "sprites/hammer.png",
             16,

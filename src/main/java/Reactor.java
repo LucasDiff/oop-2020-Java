@@ -143,6 +143,10 @@ public class Reactor extends AbstractActor {
             Animation.PlayMode.LOOP_PINGPONG
         );
     }
+    public boolean isOn() {
+        return isRunninggg;
+    }
+
 
     public void turnOff() {
         int c = 0;
