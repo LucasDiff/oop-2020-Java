@@ -5,8 +5,6 @@ import sk.tuke.kpi.oop.game.Repairable;
 
 public class Hammer extends BreakableTool<Repairable>  {
 
-    private Animation normalAnimation;
-
     public Hammer(int usesLeft) {
         super(usesLeft);
         setAnimation(new Animation(
