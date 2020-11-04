@@ -5,7 +5,7 @@ public class Light extends AbstractActor implements Switchable, EnergyConsumer{
     private boolean pripojene;
     private Animation lightOff = new Animation (   "sprites/light_off.png");
     private Animation lightOn = new Animation(  "sprites/light_on.png");
-    private boolean zapnute;
+    private boolean isOn;
 
 
     public Light(){
@@ -17,25 +17,25 @@ public class Light extends AbstractActor implements Switchable, EnergyConsumer{
     }
     @Override
     public void turnOn() {
-        this.zapnute = true;
+        this.isOn = true;
         updateAnimation();
     }
     @Override
-    public boolean zapnute() {
-        return this.zapnute;
+    public boolean isOn() {
+        return this.isOn;
     }
     @Override
     public void turnOff() {
-    this.zapnute = false;
+    this.isOn = false;
     updateAnimation();
     }
     public void toggle() {
         int c = 0;
-        if(this.zapnute && c == 0) {
-            this.zapnute = false;
+        if(this.isOn && c == 0) {
+            this.isOn = false;
         }
         else{
-            this.zapnute = true;
+            this.isOn = true;
         }
     }
 
@@ -43,7 +43,7 @@ public class Light extends AbstractActor implements Switchable, EnergyConsumer{
     public void setPowered(boolean Powered) {this.setElectricityFlow(Powered);
     }
     public void updateAnimation() {
-        if ( this.zapnute && this.pripojene) {
+        if ( this.isOn && this.pripojene) {
             this.setAnimation(this.lightOn);
         } else{this.setAnimation(this.lightOff);
         }

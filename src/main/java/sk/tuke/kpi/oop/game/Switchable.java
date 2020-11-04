@@ -4,6 +4,6 @@ public interface Switchable {
 
     void turnOn();
     void turnOff();
-    boolean zapnute();
+    boolean isOn();
 }
 

@@ -130,7 +130,7 @@ public class Reactor extends AbstractActor implements Switchable, Repairable {
     }
 
     @Override
-    public boolean zapnute() {
+    public boolean isOn() {
         return isRunning;
     }
 

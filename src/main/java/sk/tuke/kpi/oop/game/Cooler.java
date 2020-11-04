@@ -33,7 +33,7 @@ public class Cooler extends AbstractActor implements Switchable {
     }
 
     @Override
-    public boolean zapnute() {
+    public boolean isOn() {
         return isWorking;
     }
 
@@ -52,3 +52,4 @@ public class Cooler extends AbstractActor implements Switchable {
         }
     }
 }
+
