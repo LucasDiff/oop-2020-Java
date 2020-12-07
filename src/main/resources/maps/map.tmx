@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="40" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="124">
+ <tileset firstgid="1" name="tileset01" tilewidth="16" tileheight="16" tilecount="500" columns="20">
+  <image source="tilesets/tileset01.png" width="320" height="400"/>
+ </tileset>
+ <tileset firstgid="501" name="tileset02" tilewidth="16" tileheight="16" tilecount="500" columns="20">
+  <image source="tilesets/tileset02.png" width="320" height="400"/>
+ </tileset>
+ <tileset firstgid="1001" name="ab_tiles_a" tilewidth="16" tileheight="16" tilecount="240" columns="16">
+  <image source="tilesets/ab_tiles_a.png" width="256" height="240"/>
+ </tileset>
+ <tileset firstgid="1241" name="ab_tiles_b" tilewidth="16" tileheight="16" tilecount="256" columns="16">
+  <image source="tilesets/ab_tiles_b.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="1497" name="ab_tiles_c" tilewidth="16" tileheight="16" tilecount="256" columns="16">
+  <image source="tilesets/ab_tiles_c.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="1753" name="ab_tiles_d" tilewidth="16" tileheight="16" tilecount="256" columns="16">
+  <image source="tilesets/ab_tiles_d.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="2009" name="PDGPTileset" tilewidth="16" tileheight="16" tilecount="1536" columns="32">
+  <image source="tilesets/PDGPTileset.jpg" width="512" height="768"/>
+ </tileset>
+ <layer id="4" name="background" width="40" height="25">
+  <data encoding="base64" compression="zlib">
+   eJy1l0tsDVEYx487t723de8KsRAUiZ1H4rXyCvFaKEoqIRGp6oIg8bgewaItUY8q2tp4lmvBxrMqYYWK14pYqSohwcozUQu/Y+ZkTo8zd+69ZfHLN3POmTP/85/vOzMzLi5EP+gPA7SotzUb52HjtwSMD7vOHDMefsSE6CoU4g28hXQsPzqLhXiXEOI9TGLeckeIpU7votQ2kLk+o+sLfIVumE3fjYgQrXAT2uAWzHHc/l8eP+FqzD2W+gqTQsSgXNNXCgtgYR4apTa5Vt2/vtyvnr6H6HkEj+EJPI247R8Z8wEGM24IDIUSwz+57hmMnQkVsAoqjXtPhWkwPYPGP8/B8G8Qc7fQ14GeV9AJr6Er4rZ3e76NYtxoGANjLfrUfVKwFbYZ9y6DxbAkk49oS1n8a6XvM3q+wFf4Bt8jbrvsL4bJMAWmwrQM/pkxyCtbW8qrD90/mU/L6CuEGMShCIphueP6ex/a4QGUwvPY3/l3j7H3e0G7Vh8c5kwzOl5AyoiSzd4es6ivEMe9qFDnO5lkl9Ozz6TRq4+XPJOORHBUx5LbHtKja1E71yVJ/5oO7do7OURVH0H9aS92GNqqvRy7G7VzL+qOa3B6zhnmg4qroDLh14dqd1hzNJnZv+os9cmx5x27hjDfaqA24ddHLr7r+p5F7TyPuv1thn/6OjP5d06uLeHXR7a+K/9aoCzu14ONmwH5p45t6zdrTtVHNr4JxveBSDI3v3VttvWmtfMm5j6A5wfhkPb+0MePsOSfjCW0D4PhRr/K2TDfbc81bei7wTyn0XUGznrvj1zzLywuYJ9eGMCi4szXyz3pGrquy+8TJ7/8C4sb0LCOOdfDxyIhLsZ9WkJ8lvr2oasO9mvfL//SP6nvEHPW56nvBLpOwikt/1Yk7axM+nmSKY9M/0Yz55gAfWHP9zK6rsBVLf8qCtizoRJWQxV8irr68vFvPvOW5uFfq2V/kc94I3o2wWbYAikYWeD7F5Z3ur7D6GsI4EhIfazBs7Ww23Hfbyr/qtFSA7WwB/bCxILs/DP3l7p4cP0eiP/9vrStV73fVP4dRcsxaIQmaIZZAf7Z9kd9D/7AfKtZfxVMYFufKPzzS/Ge+3LQutX7TX0ftKDlHJyHNFzQ8i/X/UXq246WHTAXbfOEf67ryyZKbWX/4f/X/I/N9/93MfwGErZ03g==
+  </data>
+ </layer>
+ <layer id="5" name="walls" width="40" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt1UEKwjAQheEJ7nK9XDDH0k1xUQVXLryAhBoYX6fBTFJNiA/+XbEfsaWzIZob7nggmip0hjS7m/cegi/uYtbxferj98vdSD401vKFZ3DP8ytZyodG3Dd9mkWXdM4h9G75U9eU+Jwl8izHCvNW97t8p5dRY0Pf1Sy5Cq4SHz+nnnyt/L/OrsN3I5o1Hkzz/O01yTaaz9t0Lfly16tv6xslfXd/4bsJadeTL/f9wP19Y/ha7gkVqGH9
+  </data>
+ </layer>
+ <objectgroup id="3" name="actors">
+  <object id="67" name="player" type="ripley" x="587" y="358.667"/>
+  <object id="68" name="reactor" type="reactor" x="96" y="96" width="16" height="16"/>
+  <object id="70" name="door" type="horizontal" x="480.723" y="126.554"/>
+  <object id="71" name="LockedDoor" type="vertical" x="352" y="176"/>
+  <object id="72" name="alien" type="alien" x="94" y="203"/>
+  <object id="73" name="monster" type="monster" x="146" y="369.333" width="24" height="19"/>
+  <object id="74" name="alien" type="alien" x="484.333" y="59"/>
+  <object id="75" name="alien" type="alien" x="182" y="149.333"/>
+  <object id="77" name="item" type="energy" x="401.667" y="285.333"/>
+  <object id="78" name="box" type="box" x="518" y="354"/>
+  <object id="79" name="item" type="ammo" x="202" y="52.6667"/>
+  <object id="81" name="ventilator" type="broken" x="565" y="161"/>
+  <object id="83" name="generator" type="off" x="240" y="192"/>
+  <object id="84" name="locker" type="ammo" x="608" y="32"/>
+  <object id="85" name="locker" type="hammer" x="592" y="32"/>
+  <object id="86" name="item" type="ammo" x="608" y="368"/>
+  <object id="87" name="alien" type="alien" x="237.5" y="344.75"/>
+  <object id="88" name="alien" type="alien" x="481" y="364"/>
+  <object id="89" name="alien" type="alien" x="49.5" y="160.5"/>
+  <object id="90" name="generator" type="off" x="240" y="160"/>
+  <object id="91" name="mine" type="mine" x="115" y="245.5" width="24" height="19"/>
+  <object id="92" name="ammo" type="ammo" x="466" y="314.5" width="24" height="19"/>
+  <object id="93" name="mine" type="mine" x="494" y="166.5" width="24" height="19"/>
+  <object id="94" name="mine" type="mine" x="197" y="254.5" width="24" height="19"/>
+  <object id="95" name="button" type="button" x="400.508" y="154.892"/>
+  <object id="96" name="alien" type="alien" x="279" y="274"/>
+  <object id="97" name="angelghost" type="angelghost" x="253" y="303"/>
+  <object id="98" name="angelghost" type="angelghost" x="233" y="289"/>
+  <object id="99" name="angelghost" type="angelghost" x="218" y="302"/>
+  <object id="100" name="angelghost" type="angelghost" x="233" y="286"/>
+  <object id="101" name="angelghost" type="angelghost" x="103" y="209"/>
+  <object id="102" name="angelghost" type="angelghost" x="199" y="313"/>
+  <object id="103" name="angelghost" type="angelghost" x="124" y="201"/>
+  <object id="104" name="item" type="card" x="80" y="54"/>
+  <object id="105" name="hammer" type="hammer" x="520" y="241" rotation="-74.8236"/>
+  <object id="106" name="teleport" type="teleport" x="298.301" y="154.777" width="24" height="19"/>
+  <object id="111" name="button" type="button" x="485.718" y="168.002"/>
+  <object id="112" name="button" type="button" x="399.699" y="179.928"/>
+  <object id="113" name="button" type="button" x="467.647" y="168.363"/>
+  <object id="114" name="button" type="button" x="421.746" y="203.061" width="1.44571" height="3.25286"/>
+  <object id="115" name="button" type="button" x="407.289" y="193.302"/>
+  <object id="116" name="button" type="button" x="412.134" y="143.146"/>
+  <object id="117" name="button" type="button" x="449.277" y="168.424"/>
+  <object id="119" name="button" type="button" x="396.698" y="168.229" width="1.44571"/>
+  <object id="120" name="button" type="button" x="433.144" y="168.195"/>
+  <object id="121" name="button" type="button" x="415.302" y="168.35"/>
+  <object id="122" name="button" type="button" x="425.04" y="132.644"/>
+ </objectgroup>
+</map>

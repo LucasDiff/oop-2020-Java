@@ -1,51 +1,111 @@
+
 package sk.tuke.kpi.oop.game;
+
+import org.jetbrains.annotations.Contract;
+
 import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
-public class Light extends AbstractActor implements Switchable, EnergyConsumer{
-    private boolean pripojene;
-    private Animation lightOff = new Animation (   "sprites/light_off.png");
-    private Animation lightOn = new Animation(  "sprites/light_on.png");
-    private boolean isOn;
 
+/**
+ * The type Light.
+ */
+public class Light extends AbstractActor implements Switchable, EnergyConsumer {
 
-    public Light(){
+    private Animation animationOn;
+    private Animation animationOff;
+
+    private boolean on;
+    private boolean powered;
+
+    /**
+     * Instantiates a new Light.
+     */
+    public Light()
+    {
+        this.setOn(false);
+        this.setPowered(false);
+
+        this.setAnimationOn(new Animation("sprites/light_on.png", 16, 16));
+        this.setAnimationOff(new Animation("sprites/light_off.png", 16, 16));
         this.updateAnimation();
     }
-    public void setElectricityFlow(boolean pripojene){
-        this.pripojene=pripojene;
+
+    private void updateAnimation()
+    {
+        if (this.isOn() && this.isPowered()) {
+            setAnimation(this.getAnimationOn());
+            return;
+        }
+
+        setAnimation(this.getAnimationOff());
+    }
+
+    @Contract(pure = true)
+    private boolean isPowered()
+    {
+        return powered;
+    }
+
+    @Override
+    public void setPowered(boolean powered)
+    {
+        this.powered = powered;
         this.updateAnimation();
     }
-    @Override
-    public void turnOn() {
-        this.isOn = true;
-        updateAnimation();
+
+    public void turnOn()
+    {
+        this.setOn(true);
     }
-    @Override
-    public boolean isOn() {
-        return this.isOn;
+
+    public void turnOff()
+    {
+        this.setOn(false);
     }
-    @Override
-    public void turnOff() {
-    this.isOn = false;
-    updateAnimation();
-    }
-    public void toggle() {
-        int c = 0;
-        if(this.isOn && c == 0) {
-            this.isOn = false;
-        }
-        else{
-            this.isOn = true;
+
+    /**
+     * Toggle.
+     */
+    public void toggle()
+    {
+        if (this.isOn()) {
+            this.setOn(false);
+        } else {
+            this.setOn(true);
         }
     }
 
     @Override
-    public void setPowered(boolean Powered) {this.setElectricityFlow(Powered);
+    public boolean isOn()
+    {
+        return on;
     }
-    public void updateAnimation() {
-        if ( this.isOn && this.pripojene) {
-            this.setAnimation(this.lightOn);
-        } else{this.setAnimation(this.lightOff);
-        }
+
+    private void setOn(boolean on)
+    {
+        this.on = on;
+        this.updateAnimation();
+    }
+
+    @Contract(pure = true)
+    private Animation getAnimationOn()
+    {
+        return animationOn;
+    }
+
+    private void setAnimationOn(Animation animationOn)
+    {
+        this.animationOn = animationOn;
+    }
+
+    @Contract(pure = true)
+    private Animation getAnimationOff()
+    {
+        return animationOff;
+    }
+
+    private void setAnimationOff(Animation animationOff)
+    {
+        this.animationOff = animationOff;
     }
 }
