@@ -15,7 +15,7 @@ public class CommandEndGame implements Command<Actor> {
     @Override
     public void execute(Actor actor)
     {
-        int y = actor.getScene().getGame().getWindowSetup().getHeight() - (GameApplication.STATUS_LINE_OFFSET * 2);
+        int y = actor.getScene().getGame().getWindowSetup().getHeight() - (GameApplication.STATUS_LINE_OFFSET * 3);
 
         actor.getScene().getGame().getOverlay()
             .drawText(message, 20, y)

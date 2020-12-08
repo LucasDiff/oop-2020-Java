@@ -2,7 +2,6 @@ package sk.tuke.kpi.oop.game.actions;
 
 import sk.tuke.kpi.gamelib.Actor;
 import sk.tuke.kpi.gamelib.ActorContainer;
-
 import sk.tuke.kpi.gamelib.framework.actions.AbstractAction;
 import sk.tuke.kpi.oop.game.Keeper;
 
@@ -18,7 +17,7 @@ public class Drop<A extends Actor> extends AbstractAction<Keeper<A>> {
 
 
         try {
-            ActorContainer<A> container = getActor().getContainer();
+            ActorContainer<A> container = getActor().getBackpack();
             if (container != null) {
                 A actor = container.peek();
                 if (actor != null) {

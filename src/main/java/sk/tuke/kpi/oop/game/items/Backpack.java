@@ -2,15 +2,16 @@ package sk.tuke.kpi.oop.game.items;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-
+import sk.tuke.kpi.gamelib.Actor;
 import sk.tuke.kpi.gamelib.ActorContainer;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-import java.util.*;
 
-
-public class Backpack implements ActorContainer<Collectible> {
+public class Backpack<A extends Actor> implements ActorContainer<Collectible> {
     private List<Collectible> arrayList;
     private String name;
     private int capacity;

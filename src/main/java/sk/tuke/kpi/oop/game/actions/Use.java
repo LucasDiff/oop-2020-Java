@@ -36,8 +36,6 @@ public class Use<T extends Actor> extends AbstractAction<T> {
     public void execute(float deltaTime) {
         usable.useWith(getActor());
         this.setDone(true);
-
-
     }
 
 }

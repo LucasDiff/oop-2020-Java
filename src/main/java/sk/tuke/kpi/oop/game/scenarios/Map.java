@@ -8,13 +8,11 @@ import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.framework.actions.Loop;
 import sk.tuke.kpi.gamelib.graphics.Overlay;
 import sk.tuke.kpi.oop.game.*;
+import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
 import sk.tuke.kpi.oop.game.builder.Builder;
 import sk.tuke.kpi.oop.game.builder.Director;
 import sk.tuke.kpi.oop.game.builder.RipleyBuilder;
 import sk.tuke.kpi.oop.game.builder.RipleyDirector;
-
-import sk.tuke.kpi.oop.game.prototype.ProductType;
-import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
 import sk.tuke.kpi.oop.game.characters.Alien;
 import sk.tuke.kpi.oop.game.characters.AngelGhost;
 import sk.tuke.kpi.oop.game.characters.Monster;
@@ -23,9 +21,13 @@ import sk.tuke.kpi.oop.game.controllers.KeeperController;
 import sk.tuke.kpi.oop.game.controllers.MovableController;
 import sk.tuke.kpi.oop.game.controllers.ShooterController;
 import sk.tuke.kpi.oop.game.controllers.SkuskaController;
-import sk.tuke.kpi.oop.game.items.*;
+import sk.tuke.kpi.oop.game.items.AccessCard;
+import sk.tuke.kpi.oop.game.items.Ammo;
+import sk.tuke.kpi.oop.game.items.Energy;
+import sk.tuke.kpi.oop.game.items.Hammer;
 import sk.tuke.kpi.oop.game.openables.Door;
 import sk.tuke.kpi.oop.game.openables.LockedDoor;
+import sk.tuke.kpi.oop.game.prototype.ProductType;
 import sk.tuke.kpi.oop.game.prototypeJava2.MyFactory;
 import sk.tuke.kpi.oop.game.prototypeJava2.MyProductType;
 
@@ -162,7 +164,7 @@ public class Map implements SceneListener {
         Overlay overlay = scene.getGame().getOverlay();
 
 
-        scene.getGame().pushActorContainer(ripley.getContainer());
+        scene.getGame().pushActorContainer(ripley.getBackpack());
         scene.follow(ripley);
         scene.getInput().registerListener(new SkuskaController(scene));
 

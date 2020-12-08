@@ -3,18 +3,14 @@ package sk.tuke.kpi.oop.game.characters;
 
 
 import org.jetbrains.annotations.NotNull;
-
 import sk.tuke.kpi.gamelib.Scene;
-import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.actions.Invoke;
 import sk.tuke.kpi.gamelib.actions.When;
+import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
-
 import sk.tuke.kpi.oop.game.Movable;
 import sk.tuke.kpi.oop.game.behaviours.Behaviour;
-
 import sk.tuke.kpi.oop.game.openables.Door;
-
 
 import java.util.Optional;
 
@@ -84,6 +80,6 @@ public class Monster extends AbstractActor implements Alive, Enemy, Movable {
 
     @Override
     public Health getHealth() {
-        return null;
+        return health;
     }
 }

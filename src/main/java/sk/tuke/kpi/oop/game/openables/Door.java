@@ -7,7 +7,6 @@ import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
 import sk.tuke.kpi.gamelib.map.MapTile;
 import sk.tuke.kpi.gamelib.messages.Topic;
-
 import sk.tuke.kpi.oop.game.items.Usable;
 
 public class Door extends AbstractActor implements Usable<Actor>, Openable {

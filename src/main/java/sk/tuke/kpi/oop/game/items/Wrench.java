@@ -1,10 +1,7 @@
 package sk.tuke.kpi.oop.game.items;
 
-import sk.tuke.kpi.gamelib.ActorContainer;
-import sk.tuke.kpi.oop.game.DefectiveLight;
 import sk.tuke.kpi.gamelib.graphics.Animation;
-
-import java.awt.*;
+import sk.tuke.kpi.oop.game.DefectiveLight;
 
 public class Wrench extends BreakableTool<DefectiveLight> implements Collectible {
 

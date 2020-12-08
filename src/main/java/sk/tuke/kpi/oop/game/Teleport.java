@@ -4,7 +4,6 @@ package sk.tuke.kpi.oop.game;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-
 import sk.tuke.kpi.gamelib.Scene;
 import sk.tuke.kpi.gamelib.actions.Invoke;
 import sk.tuke.kpi.gamelib.actions.When;

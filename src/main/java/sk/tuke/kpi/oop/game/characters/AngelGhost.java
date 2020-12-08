@@ -2,16 +2,11 @@
 package sk.tuke.kpi.oop.game.characters;
 
 import org.jetbrains.annotations.NotNull;
-
 import sk.tuke.kpi.gamelib.Scene;
-
 import sk.tuke.kpi.gamelib.actions.Invoke;
 import sk.tuke.kpi.gamelib.actions.When;
 import sk.tuke.kpi.gamelib.graphics.Animation;
-
-
 import sk.tuke.kpi.oop.game.behaviours.Behaviour;
-
 
 import java.util.Optional;
 

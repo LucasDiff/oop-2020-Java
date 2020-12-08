@@ -2,16 +2,14 @@
 
 package sk.tuke.kpi.oop.game.behaviours;
 
-    import org.jetbrains.annotations.Contract;
-
-    import sk.tuke.kpi.gamelib.actions.ActionSequence;
-    import sk.tuke.kpi.gamelib.actions.Invoke;
-    import sk.tuke.kpi.gamelib.actions.Wait;
-    import sk.tuke.kpi.gamelib.framework.actions.Loop;
-
-    import sk.tuke.kpi.oop.game.Direction;
-    import sk.tuke.kpi.oop.game.Movable;
-    import sk.tuke.kpi.oop.game.actions.Move;
+import org.jetbrains.annotations.Contract;
+import sk.tuke.kpi.gamelib.actions.ActionSequence;
+import sk.tuke.kpi.gamelib.actions.Invoke;
+import sk.tuke.kpi.gamelib.actions.Wait;
+import sk.tuke.kpi.gamelib.framework.actions.Loop;
+import sk.tuke.kpi.oop.game.Direction;
+import sk.tuke.kpi.oop.game.Movable;
+import sk.tuke.kpi.oop.game.actions.Move;
 
 
 public class RandomlyMoving implements Behaviour<Movable> {
@@ -31,8 +29,10 @@ public class RandomlyMoving implements Behaviour<Movable> {
     @Override
     public void setUp(Movable actor)
     {
-        this.setMovable(actor);
-        this.randomness();
+        if (actor != null) {
+            this.setMovable(actor);
+            this.randomness();
+        }
     }
 
     @Contract(pure = true)

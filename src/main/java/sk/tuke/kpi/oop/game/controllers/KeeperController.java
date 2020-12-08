@@ -2,14 +2,12 @@ package sk.tuke.kpi.oop.game.controllers;
 
 
 import org.jetbrains.annotations.NotNull;
-
 import sk.tuke.kpi.gamelib.Actor;
 import sk.tuke.kpi.gamelib.Input;
 import sk.tuke.kpi.gamelib.KeyboardListener;
 import sk.tuke.kpi.oop.game.Keeper;
 import sk.tuke.kpi.oop.game.actions.Drop;
 import sk.tuke.kpi.oop.game.actions.Shift;
-
 import sk.tuke.kpi.oop.game.actions.Take;
 import sk.tuke.kpi.oop.game.actions.Use;
 import sk.tuke.kpi.oop.game.items.Collectible;
@@ -35,13 +33,13 @@ public class KeeperController implements KeyboardListener {
         else if (key.equals(Input.Key.S)) {
             new Shift<Collectible>().scheduleFor(actor);
         } else if (key.equals(Input.Key.B)) {
-            if (!(actor.getContainer().peek() instanceof Usable)) {
+            if (!(actor.getBackpack().peek() instanceof Usable)) {
                 return;
             }
-            if (actor.getContainer().getSize() <= 0) {
+            if (actor.getBackpack().getSize() <= 0) {
                 return;
             }
-            new Use<>((Usable<?>) actor.getContainer().peek()).scheduleOnIntersectingWith(actor);
+            new Use<>((Usable<?>) actor.getBackpack().peek()).scheduleOnIntersectingWith(actor);
         } else if (key.equals(Input.Key.U)) {
             Optional<Actor> usable = actor.getScene().getActors().stream().filter(Usable.class::isInstance).filter(actor::intersects).findFirst();
             usable.ifPresent(actor1 -> new Use<>((Usable<?>) actor1).scheduleOnIntersectingWith(actor));

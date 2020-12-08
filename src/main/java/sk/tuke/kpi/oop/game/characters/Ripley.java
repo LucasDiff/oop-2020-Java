@@ -3,6 +3,11 @@ package sk.tuke.kpi.oop.game.characters;
 import org.jetbrains.annotations.NotNull;
 import sk.tuke.kpi.gamelib.GameApplication;
 import sk.tuke.kpi.gamelib.Scene;
+import sk.tuke.kpi.gamelib.actions.Invoke;
+import sk.tuke.kpi.gamelib.framework.AbstractActor;
+import sk.tuke.kpi.gamelib.framework.actions.Loop;
+import sk.tuke.kpi.gamelib.graphics.Animation;
+import sk.tuke.kpi.gamelib.graphics.Overlay;
 import sk.tuke.kpi.gamelib.messages.Topic;
 import sk.tuke.kpi.oop.game.Direction;
 import sk.tuke.kpi.oop.game.Keeper;
@@ -11,17 +16,12 @@ import sk.tuke.kpi.oop.game.items.Backpack;
 import sk.tuke.kpi.oop.game.items.Collectible;
 import sk.tuke.kpi.oop.game.weapons.Firearm;
 import sk.tuke.kpi.oop.game.weapons.Gun;
-import sk.tuke.kpi.gamelib.actions.Invoke;
-import sk.tuke.kpi.gamelib.framework.AbstractActor;
-import sk.tuke.kpi.gamelib.framework.actions.Loop;
-import sk.tuke.kpi.gamelib.graphics.Animation;
-import sk.tuke.kpi.gamelib.graphics.Overlay;
 
 public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keeper<Collectible> {
 
     private Animation normal;
 
-    private Backpack backpack;
+    private Backpack<Collectible> backpack;
 
     private Health health;
 
@@ -39,7 +39,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
     }
 
     @Override
-    public Backpack getContainer()
+    public Backpack<Collectible> getBackpack()
     {
         return backpack;
     }
@@ -101,7 +101,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
         this.getNormal().stop();
 
         health = new Health(1000);
-        backpack = new Backpack("Ripley's backpack", 5);
+        backpack = new Backpack<Collectible>("Ripley's backpack", 5);
         firearm = new Gun(0, 500);
 
         health.onExhaustion(() -> {
@@ -112,8 +112,4 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
 
         setAnimation(this.getNormal());
     }
-
-
-
-
 }

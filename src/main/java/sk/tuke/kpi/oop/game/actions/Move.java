@@ -1,9 +1,9 @@
 package sk.tuke.kpi.oop.game.actions;
 
 import org.jetbrains.annotations.Nullable;
+import sk.tuke.kpi.gamelib.actions.Action;
 import sk.tuke.kpi.oop.game.Direction;
 import sk.tuke.kpi.oop.game.Movable;
-import sk.tuke.kpi.gamelib.actions.Action;
 
 public class Move<M extends Movable> implements Action<M> {
 
@@ -56,7 +56,10 @@ public class Move<M extends Movable> implements Action<M> {
         newPosition(x, y, speed);
         if (getActor().getScene().getMap().intersectsWithWall(getActor())) {
             getActor().collidedWithWall();
-            getActor().setPosition(x, y);
+
+            if (getActor() != null) {
+                getActor().setPosition(x, y);
+            }
 
             stop();
         }
@@ -95,7 +98,9 @@ public class Move<M extends Movable> implements Action<M> {
             return;
         }
 
-        getActor().stoppedMoving();
+        if (getActor() != null) {
+            getActor().stoppedMoving();
+        }
         done = true;
     }
 

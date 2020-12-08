@@ -1,13 +1,8 @@
 package sk.tuke.kpi.oop.game;
 
-import sk.tuke.kpi.gamelib.Game;
-import sk.tuke.kpi.gamelib.GameApplication;
-import sk.tuke.kpi.gamelib.Input;
-import sk.tuke.kpi.gamelib.Scene;
-import sk.tuke.kpi.gamelib.WindowSetup;
-import sk.tuke.kpi.gamelib.World;
-import sk.tuke.kpi.oop.game.scenarios.Map;
+import sk.tuke.kpi.gamelib.*;
 import sk.tuke.kpi.gamelib.backends.lwjgl.LwjglBackend;
+import sk.tuke.kpi.oop.game.scenarios.Map;
 
 public class Main {
 

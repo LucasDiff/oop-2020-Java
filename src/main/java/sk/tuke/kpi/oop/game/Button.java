@@ -5,7 +5,6 @@ import sk.tuke.kpi.gamelib.Scene;
 import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
 import sk.tuke.kpi.gamelib.messages.Topic;
-
 import sk.tuke.kpi.oop.game.openables.Door;
 
 public class Button extends AbstractActor {

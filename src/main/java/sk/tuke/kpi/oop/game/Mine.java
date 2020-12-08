@@ -11,7 +11,6 @@ import sk.tuke.kpi.oop.game.characters.Enemy;
 import sk.tuke.kpi.oop.game.characters.Ripley;
 import sk.tuke.kpi.oop.game.openables.Door;
 
-
 import java.util.Optional;
 
 public class Mine extends AbstractActor {
