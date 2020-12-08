@@ -1,12 +1,12 @@
 package sk.tuke.kpi.oop.game.actions;
 
-import sk.tuke.kpi.gamelib.Actor;
-import sk.tuke.kpi.gamelib.ActorContainer;
 import sk.tuke.kpi.gamelib.Scene;
 import sk.tuke.kpi.gamelib.framework.actions.AbstractAction;
 import sk.tuke.kpi.oop.game.Keeper;
+import sk.tuke.kpi.oop.game.items.Backpack;
+import sk.tuke.kpi.oop.game.items.Collectible;
 
-public class Take<A extends Actor> extends AbstractAction<Keeper<A>> {
+public class Take<A extends Collectible> extends AbstractAction<Keeper<A>> {
 
     private Class<A> takeableActorsClass;
 
@@ -35,9 +35,9 @@ public class Take<A extends Actor> extends AbstractAction<Keeper<A>> {
             .findFirst().ifPresent(actor -> {
 
             try {
-                ActorContainer<A> container = getActor().getBackpack();
-                if (container != null) {
-                    container.add(takeableActorsClass.cast(actor));
+                Backpack<A> backpack = getActor().getBackpack();
+                if (backpack != null) {
+                    backpack.add(takeableActorsClass.cast(actor));
 
                     scene.removeActor(takeableActorsClass.cast(actor));
                 }
