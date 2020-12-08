@@ -6,32 +6,28 @@ import sk.tuke.kpi.gamelib.graphics.Animation;
 import sk.tuke.kpi.oop.game.characters.Alive;
 
 
-public class Energy extends AbstractActor implements Usable<Alive>  {
+public class Energy extends AbstractActor implements Usable<Alive> {
 
     public Energy() {
         super("energy");
-        setAnimation(new Animation("sprites/energy.png",16,16));
+        setAnimation(new Animation("sprites/energy.png", 16, 16));
     }
 
 
-
-
     @Override
-    public void useWith(Alive actor)
-    {
+    public void useWith(Alive actor) {
         if (actor == null) {
             return;
         }
 
         actor.getHealth().refill(50);
 
-       if(this.getScene()==null)return;
+        if (this.getScene() == null) return;
 
 
-            this.getScene().removeActor(this);
+        this.getScene().removeActor(this);
 
     }
-
 
 
     @Override
@@ -40,9 +36,7 @@ public class Energy extends AbstractActor implements Usable<Alive>  {
     }
 
 
-
-
-    }
+}
 
 
 

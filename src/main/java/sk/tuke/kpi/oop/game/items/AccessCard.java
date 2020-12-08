@@ -1,5 +1,6 @@
 package sk.tuke.kpi.oop.game.items;
 
+import sk.tuke.kpi.gamelib.ActorContainer;
 import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
 

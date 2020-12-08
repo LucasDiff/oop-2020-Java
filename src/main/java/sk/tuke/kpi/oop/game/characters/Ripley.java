@@ -93,8 +93,8 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
     {
         getAnimation().stop();
     }
-    public Ripley()
-    {
+
+    public Ripley() {
         super("Ellen");
 
         this.setNormal(new Animation("sprites/player.png", 32, 32, 0.1f, Animation.PlayMode.LOOP_PINGPONG));

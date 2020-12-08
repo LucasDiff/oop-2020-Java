@@ -2,23 +2,23 @@ package sk.tuke.kpi.oop.game;
 
 import java.util.Random;
 
-public enum Direction{
+public enum Direction {
     EAST(1, 0),
     NONE(0, 0),
     NORTH(0, 1),
     SOUTH(0, -1),
     WEST(-1, 0),
-    NORTHEAST (1, 1),
-    SOUTHEAST (1, -1),
-    SOUTHWEST (-1, -1),
-    NORTHWEST (-1, 1);
+    NORTHEAST(1, 1),
+    SOUTHEAST(1, -1),
+    SOUTHWEST(-1, -1),
+    NORTHWEST(-1, 1);
 
 
     private final int dx;
     private final int dy;
 
 
-Direction(int dx, int dy) {
+    Direction(int dx, int dy) {
         this.dx = dx;
         this.dy = dy;
 
@@ -32,8 +32,7 @@ Direction(int dx, int dy) {
         return dy;
     }
 
-    public static Direction fromAngle(float angle)
-    {
+    public static Direction fromAngle(float angle) {
         if (angle == 0.0f) {
             return NORTH;
         } else if (angle == 270.0f) {
@@ -56,11 +55,9 @@ Direction(int dx, int dy) {
     }
 
 
-
-
     public float getAngle() {
 
-        switch (this ) {
+        switch (this) {
             case NORTH:
                 return 0f;
             case EAST:
@@ -77,21 +74,19 @@ Direction(int dx, int dy) {
                 return 135f;
             case SOUTHEAST:
                 return 225f;
-                default:
-                    break;
+            default:
+                break;
         }
         return 0;
 
     }
 
-    public static Direction random()
-    {
+    public static Direction random() {
         return (Direction.values())[(new Random()).nextInt(Direction.values().length)];
     }
 
 
-    public Direction combine(Direction other)
-    {
+    public Direction combine(Direction other) {
         if (other == null) {
             return this;
         }
@@ -116,7 +111,6 @@ Direction(int dx, int dy) {
 
         return Direction.NONE;
     }
-
 
 
 }

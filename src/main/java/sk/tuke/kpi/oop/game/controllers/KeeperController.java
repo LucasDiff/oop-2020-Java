@@ -18,54 +18,36 @@ import sk.tuke.kpi.oop.game.items.Usable;
 import java.util.Optional;
 
 
-
-public class CollectorController implements KeyboardListener {
+public class KeeperController implements KeyboardListener {
     private Keeper<Collectible> actor;
 
-    public CollectorController(Keeper<Collectible> actor) {
-
+    public KeeperController(Keeper<Collectible> actor) {
         this.actor = actor;
-
     }
-
-
 
 
     @Override
     public void keyPressed(@NotNull Input.Key key) {
-
-
-       if (key.equals(Input.Key.ENTER)) {
-new Take<>(Collectible.class).scheduleFor(actor);
-
-       }
-
-        else if (key.equals(Input.Key.BACKSPACE))
-           new Drop<Collectible>().scheduleFor(actor);
-
-
-       else if (key.equals(Input.Key.S)) {
-            new Shift().scheduleFor(actor);
-        }
-       else if(key.equals(Input.Key.B)){
-           if (!(actor.getContainer().peek() instanceof Usable)) {
-               return;
-           }
-           if (actor.getContainer().getSize() <= 0) {
-               return;
-           }
-           new Use<>((Usable<?>) actor.getContainer().peek()).scheduleOnIntersectingWith(actor);
-       }
-      else  if (key.equals(Input.Key.U)) {
-
+        if (key.equals(Input.Key.ENTER)) {
+            new Take<>(Collectible.class).scheduleFor(actor);
+        } else if (key.equals(Input.Key.BACKSPACE))
+            new Drop<Collectible>().scheduleFor(actor);
+        else if (key.equals(Input.Key.S)) {
+            new Shift<Collectible>().scheduleFor(actor);
+        } else if (key.equals(Input.Key.B)) {
+            if (!(actor.getContainer().peek() instanceof Usable)) {
+                return;
+            }
+            if (actor.getContainer().getSize() <= 0) {
+                return;
+            }
+            new Use<>((Usable<?>) actor.getContainer().peek()).scheduleOnIntersectingWith(actor);
+        } else if (key.equals(Input.Key.U)) {
             Optional<Actor> usable = actor.getScene().getActors().stream().filter(Usable.class::isInstance).filter(actor::intersects).findFirst();
             usable.ifPresent(actor1 -> new Use<>((Usable<?>) actor1).scheduleOnIntersectingWith(actor));
 
         }
-
-
     }
-
 }
 
 

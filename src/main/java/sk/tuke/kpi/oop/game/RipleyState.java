@@ -3,19 +3,17 @@ package sk.tuke.kpi.oop.game;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Ripley_state {
-
-    private static Ripley_state instance;
-
+public class RipleyState {
+    private static RipleyState instance;
     private Map<String, String> files;
 
-    private Ripley_state() {
+    private RipleyState() {
         this.files = new HashMap<>();
     }
 
-    public static Ripley_state getInstance() {
+    public static RipleyState getInstance() {
         if (instance == null)
-            instance = new Ripley_state();
+            instance = new RipleyState();
         return instance;
     }
 

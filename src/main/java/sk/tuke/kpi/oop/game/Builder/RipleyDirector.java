@@ -1,4 +1,4 @@
-package sk.tuke.kpi.oop.game.Builder;
+package sk.tuke.kpi.oop.game.builder;
 
 public class RipleyDirector implements Director {
 

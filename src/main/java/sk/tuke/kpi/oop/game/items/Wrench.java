@@ -1,7 +1,10 @@
 package sk.tuke.kpi.oop.game.items;
 
+import sk.tuke.kpi.gamelib.ActorContainer;
 import sk.tuke.kpi.oop.game.DefectiveLight;
 import sk.tuke.kpi.gamelib.graphics.Animation;
+
+import java.awt.*;
 
 public class Wrench extends BreakableTool<DefectiveLight> implements Collectible {
 
@@ -29,6 +32,4 @@ public class Wrench extends BreakableTool<DefectiveLight> implements Collectible
     public Class<DefectiveLight> getUsingActorClass() {
         return DefectiveLight.class;
     }
-
-
 }

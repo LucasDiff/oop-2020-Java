@@ -7,16 +7,14 @@ public class LockedDoor extends Door {
 
     private boolean locked;
 
-    public LockedDoor(String name, Orientation orientation)
-    {
+    public LockedDoor(String name, Orientation orientation) {
         super(name, orientation);
 
         locked = true;
     }
 
     @Override
-    public void useWith(Actor actor)
-    {
+    public void useWith(Actor actor) {
         if (actor == null) {
             return;
         }
@@ -31,8 +29,7 @@ public class LockedDoor extends Door {
     }
 
     @Override
-    public void open()
-    {
+    public void open() {
         if (locked) {
             return;
         }
@@ -40,8 +37,7 @@ public class LockedDoor extends Door {
         super.open();
     }
 
-    public void unlock()
-    {
+    public void unlock() {
         locked = false;
         open();
     }

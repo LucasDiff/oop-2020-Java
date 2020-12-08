@@ -4,51 +4,40 @@ import org.jetbrains.annotations.NotNull;
 import sk.tuke.kpi.gamelib.Scene;
 import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.graphics.Animation;
-import sk.tuke.kpi.oop.game.openables.Door;
 
 public class Win extends AbstractActor implements EnergyConsumer, Switchable {
-
     private boolean on;
 
-   private final Animation offAnimation = new Animation("sprites/money.png", 16, 16);
-    private final Animation onAnimation  = new Animation("sprites/won.png", 100, 100);
+    private final Animation offAnimation = new Animation("sprites/money.png", 16, 16);
+    private final Animation onAnimation = new Animation("sprites/won.png", 100, 100);
 
 
-    public Win()
-    {  setAnimation(offAnimation);
+    public Win() {
+        setAnimation(offAnimation);
         on = false;
     }
-
     @Override
-    public void addedToScene(@NotNull Scene scene)
-    {
+    public void addedToScene(@NotNull Scene scene) {
         super.addedToScene(scene);
-
-
-        scene.getMessageBus().subscribeOnce(Button.Button_win, a -> {
+        scene.getMessageBus().subscribeOnce(Button.BUTTON_WIN, a -> {
             turnOn();
-    });
+        });
     }
 
     @Override
-    public void turnOn()
-    {
+    public void turnOn() {
         setAnimation(onAnimation);
         on = true;
-
-
     }
 
     @Override
-    public void turnOff()
-    {
+    public void turnOff() {
         setAnimation(offAnimation);
         on = false;
     }
 
     @Override
-    public void setPowered(boolean powered)
-    {
+    public void setPowered(boolean powered) {
         if (powered) {
             turnOn();
         } else {
@@ -57,8 +46,7 @@ public class Win extends AbstractActor implements EnergyConsumer, Switchable {
     }
 
     @Override
-    public boolean isOn()
-    {
+    public boolean isOn() {
         return on;
     }
 }

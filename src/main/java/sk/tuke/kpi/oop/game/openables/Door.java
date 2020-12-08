@@ -13,7 +13,8 @@ import sk.tuke.kpi.oop.game.items.Usable;
 public class Door extends AbstractActor implements Usable<Actor>, Openable {
 
     private boolean open;
-    public static final Topic<Door> Door_open = Topic.create("door opened", Door.class);
+    public static final Topic<Door> DOOR_OPENED = Topic.create("door opened", Door.class);
+    public static final Topic<Door> DOOR_CLOSED = Topic.create("door closed", Door.class);
 
     public enum Orientation {
         HORIZONTAL,
@@ -55,7 +56,7 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
     @Override
     public void open()
     {
-        this.getScene().getMessageBus().publish(Door_open, this);
+        this.getScene().getMessageBus().publish(DOOR_OPENED, this);
 
         open = true;
 

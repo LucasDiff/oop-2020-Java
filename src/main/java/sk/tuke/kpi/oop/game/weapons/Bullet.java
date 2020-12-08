@@ -1,5 +1,3 @@
-
-
 package sk.tuke.kpi.oop.game.weapons;
 
 import org.jetbrains.annotations.NotNull;
@@ -13,26 +11,20 @@ import sk.tuke.kpi.gamelib.graphics.Animation;
 import sk.tuke.kpi.oop.game.Direction;
 import sk.tuke.kpi.oop.game.characters.Alive;
 
-/**
- * The type Bullet.
- */
 public class Bullet extends AbstractActor implements Fireable {
 
     /**
      * Instantiates a new Bullet.
      */
-    public Bullet()
-    {
+    public Bullet() {
         setAnimation(new Animation("sprites/bullet.png", 16, 16));
     }
 
     @Override
-    public void addedToScene(@NotNull Scene scene)
-    {
+    public void addedToScene(@NotNull Scene scene) {
         super.addedToScene(scene);
 
         new When<>(
-
             //Search for any Alive actor which intersects bullet
             action -> scene.getActors().stream()
                 .filter(Alive.class::isInstance)
@@ -45,12 +37,11 @@ public class Bullet extends AbstractActor implements Fireable {
                 .findFirst()
                 .ifPresent(
                     actor -> {
-
                         //Drain Health
                         ((Alive) actor).getHealth().drain(25);
 
                         //Remove bullet
-                     //   scene.cancelActions(this);
+                        //   scene.cancelActions(this);
                         scene.removeActor(this);
                     }
                 ))
@@ -58,28 +49,24 @@ public class Bullet extends AbstractActor implements Fireable {
     }
 
     @Override
-    public int getSpeed()
-    {
+    public int getSpeed() {
         return 4;
     }
 
     @Override
-    public void startedMoving(Direction direction)
-    {
+    public void startedMoving(Direction direction) {
         //Rotate animation, and play it
         getAnimation().setRotation(direction.getAngle());
         getAnimation().play();
     }
 
     @Override
-    public void stoppedMoving()
-    {
+    public void stoppedMoving() {
         getAnimation().stop();
     }
 
     @Override
-    public void collidedWithWall()
-    {
+    public void collidedWithWall() {
         Scene scene = this.getScene();
         if (scene == null) {
             return;

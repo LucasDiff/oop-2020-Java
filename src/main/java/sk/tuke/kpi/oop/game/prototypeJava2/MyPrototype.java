@@ -1,4 +1,4 @@
-package sk.tuke.kpi.oop.game.prototype_java_2;
+package sk.tuke.kpi.oop.game.prototypeJava2;
 
 public interface MyPrototype {
 

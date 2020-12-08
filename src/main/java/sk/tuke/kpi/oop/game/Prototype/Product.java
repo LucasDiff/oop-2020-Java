@@ -1,4 +1,4 @@
-package sk.tuke.kpi.oop.game.Prototype;
+package sk.tuke.kpi.oop.game.prototype;
 
 public class Product implements Prototype {
 
@@ -9,7 +9,7 @@ public class Product implements Prototype {
     public Product(ProductType productType, String name) {
         this.productType = productType;
         this.name = name;
-
+        this.manufacturer = "";
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Product implements Prototype {
 
     @Override
     public String toString() {
-        return this.productType + ": " + this.name ;
+        return this.productType + ": " + this.name;
     }
 
 }

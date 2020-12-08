@@ -9,7 +9,7 @@ public class Move<M extends Movable> implements Action<M> {
 
     private M actor;
 
-    private boolean first_time;
+    private boolean firstTime;
     private boolean done;
 
     private Direction direction;
@@ -18,25 +18,20 @@ public class Move<M extends Movable> implements Action<M> {
     private float total;
 
 
-    public Move(Direction direction)
-    {
+    public Move(Direction direction) {
         this(direction, 0.0f);
     }
 
-    public Move(Direction direction, float duration)
-    {
-        first_time = true;
+    public Move(Direction direction, float duration) {
+        firstTime = true;
 
         this.direction = direction;
         this.duration = duration;
         done = false;
-
-
     }
 
     @Override
-    public void execute(float deltaTime)
-    {
+    public void execute(float deltaTime) {
         total += deltaTime;
 
         if (total >= duration) {
@@ -49,23 +44,25 @@ public class Move<M extends Movable> implements Action<M> {
         }
 
 
-        if (first_time) {
+        if (firstTime) {
             getActor().startedMoving(direction);
-            first_time = false;
+            firstTime = false;
         }
 
-        int x = getActor().getPosX();int y = getActor().getPosY();
+        int x = getActor().getPosX();
+        int y = getActor().getPosY();
 
         int speed = actor.getSpeed();
         newPosition(x, y, speed);
-        if (getActor().getScene().getMap().intersectsWithWall(getActor())) { getActor().collidedWithWall();getActor().setPosition(x, y);
+        if (getActor().getScene().getMap().intersectsWithWall(getActor())) {
+            getActor().collidedWithWall();
+            getActor().setPosition(x, y);
 
             stop();
         }
     }
 
-    private void newPosition(int x, int y, int speed)
-    {
+    private void newPosition(int x, int y, int speed) {
         if (direction == Direction.NORTH) {
             actor.setPosition(x, y + speed);
         }
@@ -93,8 +90,7 @@ public class Move<M extends Movable> implements Action<M> {
 
     }
 
-    public void stop()
-    {
+    public void stop() {
         if (done) {
             return;
         }
@@ -104,28 +100,24 @@ public class Move<M extends Movable> implements Action<M> {
     }
 
     @Override
-    public void reset()
-    {
-        first_time = true;
+    public void reset() {
+        firstTime = true;
         done = false;
     }
 
     @Override
-    public boolean isDone()
-    {
+    public boolean isDone() {
         return done;
     }
 
     @Nullable
     @Override
-    public M getActor()
-    {
+    public M getActor() {
         return actor;
     }
 
     @Override
-    public void setActor(@Nullable M actor)
-    {
+    public void setActor(@Nullable M actor) {
         this.actor = actor;
     }
 }

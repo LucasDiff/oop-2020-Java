@@ -13,107 +13,90 @@ public class Health {
 
     private List<ExhaustionEffect> array;
 
-    private boolean notdeath;
+    private boolean notDeath;
 
     @FunctionalInterface
     public interface ExhaustionEffect {
-
         void apply();
     }
 
-    public Health(int value)
-    {
+    public Health(int value) {
         this(value, value);
     }
 
 
-    public Health(int value, int maxValue)
-    {
-        this.value=value;
-        this.maxValue=maxValue;
-        this.notdeath =true;
+    public Health(int value, int maxValue) {
+        this.value = value;
+        this.maxValue = maxValue;
+        this.notDeath = true;
 
-        array =new ArrayList<>();
+        array = new ArrayList<>();
     }
-    public void onExhaustion(ExhaustionEffect effect)
-    {
+
+    public void onExhaustion(ExhaustionEffect effect) {
         array.add(effect);
     }
-    public void restore()
-    {
+
+    public void restore() {
         this.setValue(this.getMaxValue());
-        notdeath =true;
+        notDeath = true;
     }
 
     @Contract(pure = true)
-    private boolean isNotdeath()
-    {
-        return notdeath;
+    private boolean isNotDeath() {
+        return notDeath;
     }
 
-    public void drain(int amount)
-    {
+    public void drain(int amount) {
         this.setValue((this.getValue() - amount >= 0) ? this.getValue() - amount : 0);
 
         if (this.getValue() <= 0) {
             this.die();
         }
     }
-    public int getValue()
-    {
+
+    public int getValue() {
         return value;
     }
 
-    private void setValue(int value)
-    {
+    private void setValue(int value) {
         this.value = value;
     }
 
     @Contract(pure = true)
-    public int getMaxValue()
-    {
+    public int getMaxValue() {
         return maxValue;
     }
 
 
-
-
-    public void refill(int amount)
-    {
+    public void refill(int amount) {
         this.setValue((this.getValue() + amount <= this.getMaxValue())
             ? this.getValue() + amount :
             this.getMaxValue());
-        notdeath =true;
+        notDeath = true;
     }
 
 
-    public void exhaust()
-    {
+    public void exhaust() {
         this.die();
         this.setValue(0);
 
     }
 
-    private void die()
-    { if (this.array.isEmpty()) {
-        return;
-    }
-        if (!this.isNotdeath()) {
+    private void die() {
+        if (this.array.isEmpty()) {
+            return;
+        }
+        if (!this.isNotDeath()) {
             return;
         }
 
-        notdeath =false;
+        notDeath = false;
 
         for (ExhaustionEffect exhaustionEffect : this.array) {
             exhaustionEffect.apply();
         }
     }
-
-
-
-
-
-
 
 
 }

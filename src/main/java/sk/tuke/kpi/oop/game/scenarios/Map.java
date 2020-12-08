@@ -8,50 +8,41 @@ import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.framework.actions.Loop;
 import sk.tuke.kpi.gamelib.graphics.Overlay;
 import sk.tuke.kpi.oop.game.*;
-import sk.tuke.kpi.oop.game.Builder.Builder;
-import sk.tuke.kpi.oop.game.Builder.Director;
-import sk.tuke.kpi.oop.game.Builder.RipleyBuilder;
-import sk.tuke.kpi.oop.game.Builder.RipleyDirector;
+import sk.tuke.kpi.oop.game.builder.Builder;
+import sk.tuke.kpi.oop.game.builder.Director;
+import sk.tuke.kpi.oop.game.builder.RipleyBuilder;
+import sk.tuke.kpi.oop.game.builder.RipleyDirector;
 
-import sk.tuke.kpi.oop.game.Prototype.ProductType;
+import sk.tuke.kpi.oop.game.prototype.ProductType;
 import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
 import sk.tuke.kpi.oop.game.characters.Alien;
 import sk.tuke.kpi.oop.game.characters.AngelGhost;
 import sk.tuke.kpi.oop.game.characters.Monster;
 import sk.tuke.kpi.oop.game.characters.Ripley;
-import sk.tuke.kpi.oop.game.controllers.CollectorController;
+import sk.tuke.kpi.oop.game.controllers.KeeperController;
 import sk.tuke.kpi.oop.game.controllers.MovableController;
 import sk.tuke.kpi.oop.game.controllers.ShooterController;
 import sk.tuke.kpi.oop.game.controllers.SkuskaController;
 import sk.tuke.kpi.oop.game.items.*;
 import sk.tuke.kpi.oop.game.openables.Door;
 import sk.tuke.kpi.oop.game.openables.LockedDoor;
-import sk.tuke.kpi.oop.game.prototype_java_2.myFactory;
-import sk.tuke.kpi.oop.game.prototype_java_2.myProductType;
+import sk.tuke.kpi.oop.game.prototypeJava2.MyFactory;
+import sk.tuke.kpi.oop.game.prototypeJava2.MyProductType;
 
 import java.util.List;
 
 public class Map implements SceneListener {
     private int aliens;
 
-    public int getPocitaj() {
-        return pocitaj;
-    }
 
-    public void setPocitaj(int pocitaj) {
-        this.pocitaj = pocitaj;
-    }
-
-    public int pocitaj;
-
-    public static class Factory extends AbstractActor implements ActorFactory ,Counter{
+    public static class Factory extends AbstractActor implements ActorFactory, Counter {
 
         @Nullable
-       // @Override
+        // @Override
 
         public int counter;
-        public Actor create(@Nullable String type, @Nullable String name)
-        {
+
+        public Actor create(@Nullable String type, @Nullable String name) {
             if (type == null) {
                 return null;
             }
@@ -121,8 +112,6 @@ public class Map implements SceneListener {
 
                 case "locker":
                     switch (type) {
-
-
                         default:
                             return null;
                     }
@@ -139,31 +128,29 @@ public class Map implements SceneListener {
 
         @Override
         public int setCounter() {
-            return this.counter+1;
+            return this.counter + 1;
         }
     }
 
-    int spocitaj(Scene scene){
-        int counter=0;
-        if(scene==null)return 0;
+    int spocitaj(Scene scene) {
+        int counter = 0;
+        if (scene == null) return 0;
 
         boolean i = true;
 
         for (Actor alien : scene.getActors()) {
             if (alien instanceof Alien) {
-               counter++;
+                counter++;
             }
         }
         return counter;
     }
 
 
-
     @Override
-    public void sceneInitialized(@NotNull Scene scene)
-    {
-        myFactory myFactory = new myFactory();
-        myFactory.createProduct(myProductType.KeyY);
+    public void sceneInitialized(@NotNull Scene scene) {
+        MyFactory myFactory = new MyFactory();
+        myFactory.createProduct(MyProductType.KeyY);
 
 
         Ripley ripley = scene.getFirstActorByType(Ripley.class);
@@ -172,15 +159,12 @@ public class Map implements SceneListener {
 
         scene.setActorRenderOrder(List.of(Ripley.class));
 
-            Overlay overlay = scene.getGame().getOverlay();
-
+        Overlay overlay = scene.getGame().getOverlay();
 
 
         scene.getGame().pushActorContainer(ripley.getContainer());
         scene.follow(ripley);
         scene.getInput().registerListener(new SkuskaController(scene));
-
-
 
 
         new Loop<>(
@@ -192,44 +176,40 @@ public class Map implements SceneListener {
         ).scheduleOn(scene);
 
 
-
-
-
         Disposable disposableMovable = scene.getInput().registerListener(new MovableController(ripley));
-        Disposable disposableCollector = scene.getInput().registerListener(new CollectorController(ripley));
+        Disposable disposableKeeper = scene.getInput().registerListener(new KeeperController(ripley));
         Disposable disposableShooter = scene.getInput().registerListener(new ShooterController(ripley));
-//Teleport teleport=scene.getFirstActorByType(Teleport.class);
+        //Teleport teleport=scene.getFirstActorByType(Teleport.class);
         Director Riplay = new RipleyDirector();
 
         Builder riplay = new RipleyBuilder();
-        sk.tuke.kpi.oop.game.Prototype.Factory factory=new sk.tuke.kpi.oop.game.Prototype.Factory();
+        sk.tuke.kpi.oop.game.prototype.Factory factory = new sk.tuke.kpi.oop.game.prototype.Factory();
 
 
-          scene.getMessageBus().subscribeOnce(Ripley.RIPLEY_DIED, a -> {
+        scene.getMessageBus().subscribeOnce(Ripley.RIPLEY_DIED, a -> {
 
-           Ripley_state.getInstance().saveFile("RIPLEY_DIED", factory.createProduct(ProductType.Defeat).toString());
-            new CommandEndGame( Ripley_state.getInstance().loadFile("RIPLEY_DIED")).execute(a);
-
-
+            RipleyState.getInstance().saveFile("RIPLEY_DIED", factory.createProduct(ProductType.Defeat).toString());
+            new CommandEndGame(RipleyState.getInstance().loadFile("RIPLEY_DIED")).execute(a);
 
             disposableMovable.dispose();
-            disposableCollector.dispose();
+            disposableKeeper.dispose();
 
             riplay.stopMove();
             disposableShooter.dispose();
         });
         riplay.stopMove();
-        scene.getMessageBus().subscribeOnce(Button.Button_win, a -> {
+
+        scene.getMessageBus().subscribeOnce(Button.BUTTON_WIN, a -> {
 
 
-            //Ripley_state.getInstance().saveFile("Button_win", factory.createProduct(ProductType.Victory).toString());
+            RipleyState.getInstance().saveFile("BUTTON_WIN", factory.createProduct(ProductType.Victory).toString());
             new CommandEndGame(
-                Ripley_state.getInstance().loadFile("Button_win")
+                RipleyState.getInstance().loadFile("BUTTON_WIN")
             ).execute(a);
 
 
             disposableMovable.dispose();
-            disposableCollector.dispose();
+            disposableKeeper.dispose();
             disposableShooter.dispose();
         });
 
@@ -237,10 +217,8 @@ public class Map implements SceneListener {
     }
 
 
-
     @Override
-    public void sceneCreated(@NotNull Scene scene)
-    {
+    public void sceneCreated(@NotNull Scene scene) {
 
         scene.getMessageBus().subscribe(Alien.ALIEN_BORN, action -> aliens++);
 
