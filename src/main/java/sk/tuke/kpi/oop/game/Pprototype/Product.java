@@ -1,4 +1,4 @@
-package sk.tuke.kpi.oop.game.prototype;
+package sk.tuke.kpi.oop.game.Pprototype;
 
 public class Product implements Prototype {
 

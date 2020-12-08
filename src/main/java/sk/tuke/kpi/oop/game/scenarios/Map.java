@@ -8,12 +8,12 @@ import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.framework.actions.Loop;
 import sk.tuke.kpi.gamelib.graphics.Overlay;
 import sk.tuke.kpi.oop.game.*;
-import sk.tuke.kpi.oop.game.builder.Builder;
-import sk.tuke.kpi.oop.game.builder.Director;
-import sk.tuke.kpi.oop.game.builder.RipleyBuilder;
-import sk.tuke.kpi.oop.game.builder.RipleyDirector;
+import sk.tuke.kpi.oop.game.Bbuilder.Builder;
+import sk.tuke.kpi.oop.game.Bbuilder.Director;
+import sk.tuke.kpi.oop.game.Bbuilder.RipleyBuilder;
+import sk.tuke.kpi.oop.game.Bbuilder.RipleyDirector;
 
-import sk.tuke.kpi.oop.game.prototype.ProductType;
+import sk.tuke.kpi.oop.game.Pprototype.ProductType;
 import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
 import sk.tuke.kpi.oop.game.characters.Alien;
 import sk.tuke.kpi.oop.game.characters.AngelGhost;
@@ -183,7 +183,7 @@ public class Map implements SceneListener {
         Director Riplay = new RipleyDirector();
 
         Builder riplay = new RipleyBuilder();
-        sk.tuke.kpi.oop.game.prototype.Factory factory = new sk.tuke.kpi.oop.game.prototype.Factory();
+        sk.tuke.kpi.oop.game.Pprototype.Factory factory = new sk.tuke.kpi.oop.game.Pprototype.Factory();
 
 
         scene.getMessageBus().subscribeOnce(Ripley.RIPLEY_DIED, a -> {
