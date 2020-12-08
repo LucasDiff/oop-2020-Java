@@ -1,4 +1,4 @@
-package sk.tuke.kpi.oop.game.Bbuilder;
+package sk.tuke.kpi.oop.game.builder;
 
 import sk.tuke.kpi.oop.game.characters.Ripley;
 

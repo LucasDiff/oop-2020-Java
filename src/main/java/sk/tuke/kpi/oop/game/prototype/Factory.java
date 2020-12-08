@@ -1,4 +1,4 @@
-package sk.tuke.kpi.oop.game.Pprototype;
+package sk.tuke.kpi.oop.game.prototype;
 
 import java.util.HashMap;
 import java.util.Map;
