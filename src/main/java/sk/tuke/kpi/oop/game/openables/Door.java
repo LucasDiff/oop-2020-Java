@@ -22,8 +22,7 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
 
     private Orientation orientation;
 
-    public Door(String name, Orientation orientation)
-    {
+    public Door(String name, Orientation orientation) {
 
         super(name);
 
@@ -37,24 +36,26 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
     }
 
     @Override
-    public void addedToScene(@NotNull Scene scene)
-    {
+    public void addedToScene(@NotNull Scene scene) {
         super.addedToScene(scene);
 
         close();
     }
 
     @Override
-    public void useWith(Actor actor)
-    {
+    public void useWith(Actor actor) {
         if (!open) {
             this.open();
         }
     }
 
     @Override
-    public void open()
-    {
+    public void open() {
+        //if (open) {
+        //    close();;
+        //    return;
+        //}
+
         this.getScene().getMessageBus().publish(DOOR_OPENED, this);
 
         open = true;
@@ -73,44 +74,39 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
     }
 
     @Override
-    public void close()
-    {
+    public void close() {
+        //if (!open) {
+        //    open();
+        //    return;
+        //}
+
+        this.getScene().getMessageBus().publish(DOOR_CLOSED, this);
 
         open = false;
 
+        if (orientation == Orientation.VERTICAL) {
+            this.getAnimation().setPlayMode(Animation.PlayMode.ONCE_REVERSED);
+            this.getAnimation().play();
 
-
-       if (orientation == Orientation.VERTICAL) {
-           this.getAnimation().setPlayMode(Animation.PlayMode.ONCE_REVERSED);
-           this.getAnimation().play();
-
-       } else {
-           this.getAnimation().setPlayMode(Animation.PlayMode.ONCE_REVERSED);
-           this.getAnimation().play();
-
-       }
+        } else {
+            this.getAnimation().setPlayMode(Animation.PlayMode.ONCE_REVERSED);
+            this.getAnimation().play();
+        }
 
         MapTile tile1 = getScene().getMap().getTile(getPosX() / 16, getPosY() / 16);
         MapTile tile2 = orientation == Orientation.VERTICAL ? (getScene().getMap().getTile(getPosX() / 16, getPosY() / 16 + getHeight() / 32)) : (getScene().getMap().getTile(getPosX() / 16 + getWidth() / 32, getPosY() / 16));
 
         tile1.setType(MapTile.Type.WALL);
         tile2.setType(MapTile.Type.WALL);
-
-
-
-
-
     }
 
     @Override
-    public boolean isOpen()
-    {
+    public boolean isOpen() {
         return this.open;
     }
 
     @Override
-    public Class<Actor> getUsingActorClass()
-    {
+    public Class<Actor> getUsingActorClass() {
         return Actor.class;
     }
 }

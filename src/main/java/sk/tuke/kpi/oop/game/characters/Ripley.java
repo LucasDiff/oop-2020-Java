@@ -13,15 +13,14 @@ import sk.tuke.kpi.oop.game.Direction;
 import sk.tuke.kpi.oop.game.Keeper;
 import sk.tuke.kpi.oop.game.Movable;
 import sk.tuke.kpi.oop.game.items.Backpack;
-import sk.tuke.kpi.oop.game.items.Collectible;
 import sk.tuke.kpi.oop.game.weapons.Firearm;
 import sk.tuke.kpi.oop.game.weapons.Gun;
 
-public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keeper<Collectible> {
+public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keeper {
 
     private Animation normal;
 
-    private Backpack<Collectible> backpack;
+    private Backpack backpack;
 
     private Health health;
 
@@ -39,7 +38,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
     }
 
     @Override
-    public Backpack<Collectible> getBackpack()
+    public Backpack getBackpack()
     {
         return backpack;
     }
@@ -101,7 +100,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
         this.getNormal().stop();
 
         health = new Health(1000);
-        backpack = new Backpack<Collectible>("Ripley's backpack", 5);
+        backpack = new Backpack("Ripley's backpack", 5);
         firearm = new Gun(0, 500);
 
         health.onExhaustion(() -> {

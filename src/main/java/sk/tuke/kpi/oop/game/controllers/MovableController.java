@@ -20,9 +20,12 @@ public class MovableController implements KeyboardListener {
 
     private Movable actor;
     private Move<Movable> action;
+    private int keyPressedCnt;
+    private Move<Movable> lastAction;
 
     public MovableController(Movable actor) {
         this.actor = actor;
+        this.keyPressedCnt = 0;
     }
 
     @Override
@@ -35,7 +38,9 @@ public class MovableController implements KeyboardListener {
         }
         if (action != null) {
             action.stop();
+            lastAction = null;
         }
+        keyPressedCnt--;
     }
 
     @Override
@@ -51,8 +56,19 @@ public class MovableController implements KeyboardListener {
         if (action != null) {
             action.stop();
         }
-        action = new Move<>(keyDirectionMap.get(key), 100);
-        action.scheduleFor(actor);
+        if (keyPressedCnt == 0) {
+            action = new Move<>(keyDirectionMap.get(key), 100);
+            action.scheduleFor(actor);
+            lastAction = action;
+        } else if (lastAction != null && lastAction.getDirection() != keyDirectionMap.get(key)) {
+            Direction combinedDir = action.getDirection().combine(keyDirectionMap.get(key));
+            if (combinedDir != Direction.NONE) {
+                action = new Move<>(combinedDir, 100);
+                action.scheduleFor(actor);
+                lastAction = action;
+            }
+        }
+        keyPressedCnt++;
     }
 
 

@@ -17,9 +17,9 @@ import java.util.Optional;
 
 
 public class KeeperController implements KeyboardListener {
-    private Keeper<Collectible> actor;
+    private Keeper actor;
 
-    public KeeperController(Keeper<Collectible> actor) {
+    public KeeperController(Keeper actor) {
         this.actor = actor;
     }
 
@@ -29,9 +29,9 @@ public class KeeperController implements KeyboardListener {
         if (key.equals(Input.Key.ENTER)) {
             new Take<>(Collectible.class).scheduleFor(actor);
         } else if (key.equals(Input.Key.BACKSPACE))
-            new Drop<Collectible>().scheduleFor(actor);
+            new Drop<>().scheduleFor(actor);
         else if (key.equals(Input.Key.S)) {
-            new Shift<Collectible>().scheduleFor(actor);
+            new Shift<>().scheduleFor(actor);
         } else if (key.equals(Input.Key.B)) {
             if (!(actor.getBackpack().peek() instanceof Usable)) {
                 return;
@@ -39,10 +39,10 @@ public class KeeperController implements KeyboardListener {
             if (actor.getBackpack().getSize() <= 0) {
                 return;
             }
-            new Use<>((Usable<?>) actor.getBackpack().peek()).scheduleOnIntersectingWith(actor);
+            new Use<>((Usable<?>) actor.getBackpack().peek()).scheduleForIntersectingWith(actor);
         } else if (key.equals(Input.Key.U)) {
             Optional<Actor> usable = actor.getScene().getActors().stream().filter(Usable.class::isInstance).filter(actor::intersects).findFirst();
-            usable.ifPresent(actor1 -> new Use<>((Usable<?>) actor1).scheduleOnIntersectingWith(actor));
+            usable.ifPresent(actor1 -> new Use<>((Usable<?>) actor1).scheduleForIntersectingWith(actor));
 
         }
     }

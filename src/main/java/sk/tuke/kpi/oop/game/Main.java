@@ -12,7 +12,7 @@ public class Main {
 
         Game game = new GameApplication(windowSetup, new LwjglBackend());
 
-        Scene scene = new World("world", "maps/map.tmx", new Map.Factory());
+        Scene scene = new World("world", "maps/map1.tmx", new Map.Factory());
 
         scene.getInput().onKeyPressed(key -> {
             if (key == Input.Key.ESCAPE) {

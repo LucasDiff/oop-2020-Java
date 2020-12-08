@@ -1,12 +1,11 @@
 package sk.tuke.kpi.oop.game.actions;
 
-import sk.tuke.kpi.gamelib.Actor;
 import sk.tuke.kpi.gamelib.framework.actions.AbstractAction;
 import sk.tuke.kpi.oop.game.Keeper;
 import sk.tuke.kpi.oop.game.items.Backpack;
 import sk.tuke.kpi.oop.game.items.Collectible;
 
-public class Drop<A extends Actor> extends AbstractAction<Keeper<A>> {
+public class Drop<K extends Keeper> extends AbstractAction<K> {
 
     @Override
     public void execute(float deltaTime)
@@ -18,7 +17,7 @@ public class Drop<A extends Actor> extends AbstractAction<Keeper<A>> {
 
 
         try {
-            Backpack<A> backpack = getActor().getBackpack();
+            Backpack backpack = getActor().getBackpack();
             if (backpack != null) {
                 Collectible actor = backpack.peek();
                 if (actor != null) {

@@ -24,7 +24,6 @@ public class Move<M extends Movable> implements Action<M> {
 
     public Move(Direction direction, float duration) {
         firstTime = true;
-
         this.direction = direction;
         this.duration = duration;
         done = false;
@@ -124,5 +123,9 @@ public class Move<M extends Movable> implements Action<M> {
     @Override
     public void setActor(@Nullable M actor) {
         this.actor = actor;
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 }
