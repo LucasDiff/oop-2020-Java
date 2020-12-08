@@ -10,7 +10,7 @@
  <layer id="1" name="background" width="32" height="32">
   <data encoding="base64" compression="zlib">
    eJyNlklPFEEUx2um2zAGPMC0y3ADRrnAYRA1QyAKbvGk4HaUxeXsfvMi6l29uERN8KwmEI3LN0A+gCIfwQNionDyX+n6M69fV7eTzC/vdXW9evX+tUzXCsYMgLtgtklLv+aJzfN9saNgDDwCj5u09H2xeb4vdhxMgL+BMfiZ0MQWTabosexj+zN2A35F0emoCEt/Q8ROgelCevxmfMbacesC5hlyz0Pi3ZB7x1jOo6jq1r7OHYj8dVWfzCPnIqH+HEOO3Q46QBlEYDvYAXaqOXAMmVvrrdeD+Vk396GstQt0gx5QBbvBHtDrNNnbasxga2OMuidvXVnmpzasmzXIumpgwOYBg2Af2A8O2PbWGJtf698ZJNdC7weZn3OnlfWPgjFwGBwBR8ExcBy8d3ww6fp9e70SJPeDrt+3/uNgApwGZ8BZcA6cd3N8hk7Pw2T9uu6Keua66/qpv6x/CkyDGXARXAKXwRW3/p+R+0vYiOWYWnN9Jiue+vX5s/VfBdfAdXAD3AS3wG03x2V0+hE2Yp/Afxomz7jPl/nzzp/vDigINnVysR8R9ClM6tCp4BwOIu6QSe+/XSYmUHl0/sQ+cbHf8PA9bOwxedaltZxE3CmT3n+zaLsH7oMHGRroPoxdR+6NMH3H1YN02wXETYq7i7ZvqzH9DvqL6PcV3GmL2/rUe95dMrY/J1aOofUfRtuIgz7HeNgWtw2r95y7jB3JiZVjaP1X0fcXWAO/HWse+wKxL8ErUcNqC2JbYrtkks/a0tffHwV7BkAAQkfgsW+Q9y14J2oolvCuFNsVk3yWvrVlEJXS3x/toAOUQeQo51j7H8QxOKa1P03yWfrSpr4/PPWTLF027y5Ro83PtV9SPvvZ/Pr+89VPsnThGOVScmytvX2/JHQJSun7rwt0gx5QVeh2+lJ/jh0p7TmHFVW/Pn9Z9eu1l30Yq+vXtUdiX7Bdn7+s+nuUlX2k/sxDnaXW1F/OR5+/vPX36RCJ2KLSWe/9omr3nb+89ffpYFl0+7usdOZcWC/PhbwHWD81tPUPuu+6yHPW9Lm0+ZdNjNZf3zu+e4D1cx62fn5XVv+ju2VSxGqdffnknHq3pb+//gT+NfDpXnX9GbseNLS2OoewW0qxDZyVc1r3fH+dELwGc8LOqWdaxvreZVn6+v6dBwsZdj6jvZlY31gLIvYfzr8Y0Q==
-  </data> 
+  </data>
  </layer>
  <objectgroup id="2" name="actors">
   <object id="1" name="item" type="energy" x="49.3333" y="448" width="16" height="16"/>
@@ -38,6 +38,6 @@
  <layer id="3" name="walls" width="32" height="32">
   <data encoding="base64" compression="zlib">
    eJztl9EOgCAIRXvv8/Uf6jPrxY3dLg6MqFVudzYTjhiyLPM01RMquxbRt2eLqujXQS0gNsaE/JEWYfvzjz7aGFMGv+URUwa/t6a7+fKcvT1+Wacy+WyvM/nWxtaUyY+wPRNDhK2sddqeYD3EeSxfpS17j/HLHMO4sB7iPJavkt/L5+jvX4y+IvjamcziPzV+TdF8j+0VfM/5/0r8Wv5dwdf+CbP4Fs5T+NjeXH+8fO99tWnEB9pa7qq9u63XB9pudocE8w==
-  </data> 
+  </data>
  </layer>
 </map>
