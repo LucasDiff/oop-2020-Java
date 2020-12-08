@@ -1,9 +1,10 @@
 package sk.tuke.kpi.oop.game.actions;
 
 import sk.tuke.kpi.gamelib.Actor;
-import sk.tuke.kpi.gamelib.ActorContainer;
 import sk.tuke.kpi.gamelib.framework.actions.AbstractAction;
 import sk.tuke.kpi.oop.game.Keeper;
+import sk.tuke.kpi.oop.game.items.Backpack;
+import sk.tuke.kpi.oop.game.items.Collectible;
 
 public class Drop<A extends Actor> extends AbstractAction<Keeper<A>> {
 
@@ -17,11 +18,11 @@ public class Drop<A extends Actor> extends AbstractAction<Keeper<A>> {
 
 
         try {
-            ActorContainer<A> container = getActor().getBackpack();
-            if (container != null) {
-                A actor = container.peek();
+            Backpack<A> backpack = getActor().getBackpack();
+            if (backpack != null) {
+                Collectible actor = backpack.peek();
                 if (actor != null) {
-                    container.remove(actor);
+                    backpack.remove(actor);
                     getActor().getScene().addActor(actor, getActor().getPosX(), getActor().getPosY());
                 }
             }
