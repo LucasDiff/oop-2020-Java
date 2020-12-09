@@ -52,7 +52,7 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
     @Override
     public void open() {
         if (open) {
-            close();;
+            close();
             return;
         }
 
