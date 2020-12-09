@@ -22,7 +22,14 @@ public class Fire<A extends Armed> extends AbstractAction<A> {
             return;
         }
 
-        scene.addActor(fireable, getActor().getPosX() + (16 * Direction.fromAngle(getActor().getAnimation().getRotation()).getDx()), getActor().getPosY() + (16 * Direction.fromAngle(getActor().getAnimation().getRotation()).getDy()));
+        int posX = getActor().getPosX();
+        int poxY = getActor().getPosY();
+        Direction direction = Direction.fromAngle(getActor().getAnimation().getRotation());
+        int dirDx = direction.getDx();
+        int dirDy = direction.getDy();
+        int x = posX + 8 + (24 * dirDx);
+        int y = poxY + 8 + (24 * dirDy);
+        scene.addActor(fireable, x, y);
 
 
         new Move<>(Direction.fromAngle(getActor().getAnimation().getRotation()), 100).scheduleFor(fireable);

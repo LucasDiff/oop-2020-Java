@@ -83,7 +83,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
         new Loop<>(
             new Invoke<>(() -> {
                 overlay.drawText(" | HP: " + getHealth().getValue(), 100, scene.getGame().getWindowSetup().getHeight() - GameApplication.STATUS_LINE_OFFSET);
-    //            overlay.drawText(" | AMMO: " + getFirearm().getAmmo(), 250, scene.getGame().getWindowSetup().getHeight() - GameApplication.STATUS_LINE_OFFSET);
+                overlay.drawText(" | AMMO: " + getFirearm().getAmmo(), 250, scene.getGame().getWindowSetup().getHeight() - GameApplication.STATUS_LINE_OFFSET);
             })
         ).scheduleOn(scene);
     }
