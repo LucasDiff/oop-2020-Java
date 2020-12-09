@@ -32,7 +32,6 @@ public class Take<K extends Keeper> extends AbstractAction<K> {
             .filter(actor -> actor.intersects(getActor()))
             .filter(actor -> takeableActorsClass.isInstance(actor))
             .findFirst().ifPresent(actor -> {
-
             try {
                 Backpack backpack = getActor().getBackpack();
                 if (backpack != null) {
