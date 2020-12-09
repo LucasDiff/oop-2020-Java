@@ -32,7 +32,6 @@ public class MovableController implements KeyboardListener {
 
     @Override
     public void keyReleased(@NotNull Input.Key key) {
-        System.out.println("KR: " + key.name());
         if (actor == null) {
             return;
         }

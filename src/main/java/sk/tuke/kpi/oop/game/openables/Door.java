@@ -51,10 +51,10 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
 
     @Override
     public void open() {
-        //if (open) {
-        //    close();;
-        //    return;
-        //}
+        if (open) {
+            close();;
+            return;
+        }
 
         this.getScene().getMessageBus().publish(DOOR_OPENED, this);
 
