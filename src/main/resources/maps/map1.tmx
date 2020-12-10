@@ -9,7 +9,7 @@
  <tileset firstgid="3045" source="tilesets/tileset02.tsx"/>
  <layer id="1" name="background" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   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
+   eJyNlktPFEEQx3t3xrASLrDrY9cTD/UCIvjKbiAK+IgnBQWPAgqefSeamCiod/XiI2qCZzWBi49vgHwART6CB8RE8eS/M/1namp71k32l6rp7arq+k93Z3oyxvSCGTBbp6Xf44mt5ftiB8AgeAye1Gnp+2Jr+b7YYTAC/gTG4GdCE1kMmazHco6dz9i/8IuKkqMobLERPtjRGMdOgMlMdf56fMba3GUBa1bAbRPThbp7QHdjHMt1ZFXf2te1A1G/rPouu9oltZYB1B0EQ42x/swhczeDFpAHBbAFbAXb1BqYo6h0LgXp7+OWidbCvrkPZa+toA20gw6wE+wCu50md8E9E+coe+qWldX12Td7kH31gF6wD+wHB8BBcAjMiPpa/1KQfBd6P/j6p5X9D4BBMASOgmPgODgB9oJuZ3X/WoOSWEclSO4Nrt33/ofBCDgDzoJRMAbOuTU+x6QXYbJ/3XdRPVcc9Ll26i/7nwCT4AK4CKbANLjk3v8n1P4cxrHMqTXXZ7Lo6V+fP9v/ZXAFXAXXwHVwA9x0a1zGpO9hHPsU/rMwrlUJ/L6sX+v8+e6AjGBDJxf7AUEfw6QOJQXXcBhxR0z1/ttuIgJVR9dP7BMX+xUP38J4j5GKspZTiDttqvffLMbugwfgYYoGeg5j11H7bxjvMb3XJOcRNy7uLtrOzbifHfQXMe8LuNMUjXWq/3l3ydiuGrEyh9a/D2P9DvrM8agpGutT/3PtMra/RqzMofVfxdyfYA38cqx57EvEvgKvRQ+rDYhtiOySST5rS19/f2TsGQABCB2Bx75F3Xfgveghm8N/uciumOSz9K3Ng0Ku+vujGbSAPCg48v+xzMGc1v4wyWfpS1v1/eHpn6TpsnF3iR5tfb77JeVznq2v7z9f/yRNF+bI55K5tfb2/yWhS5Crvv9aQRtoBx0KPU5f6s/cBaU917Ci+tfnL61//c7lHMbq/nXvBbEvOK7PX1r/7crKOVJ/1qHOUmvqL9ejz1+t9+/TQe7/rNJZ7/2sGvedv1rv36eDZdHt77zSmWthvzwX8h5g/9TQ9j8KxlxvaXcQsfWXTYTWX987vnuA/XMdtv8pMO1y19LdMi5itc6+enJNQa76++t34H8HPt073HzGrgex1lbnEHZTLrKBs3JN657vr5OCN2BO2Dn1TMtY339plr6+f+fBQoqdTxmvJ9aXa0HE/gPgqxmo
   </data>
  </layer>
  <objectgroup id="2" name="actors">
@@ -22,20 +22,20 @@
   <object id="7" name="ammo" type="ammo" x="66.6667" y="448" width="16" height="16"/>
   <object id="8" name="player" type="ripley" x="150" y="416" width="32" height="32"/>
   <object id="9" name="item" type="card" x="225.5" y="305" width="15" height="15.5"/>
-  <object id="10" name="item" type="card" x="208" y="96" width="13" height="17"/>
+  <object id="10" name="item" type="BlueCard" x="208" y="96" width="13" height="17"/>
   <object id="11" name="item" type="card" x="463.5" y="449" width="15.5" height="15"/>
   <object id="12" name="door" type="horizontal" x="114.606" y="270.606"/>
-  <object id="13" name="door" type="horizontal" x="353.848" y="271.227"/>
-  <object id="14" name="door" type="vertical" x="241.394" y="446.121"/>
+  <object id="13" name="FinalDoor" type="horizontal" x="353.848" y="271.227"/>
+  <object id="14" name="door" type="vertical" x="240.894" y="446.871"/>
   <object id="15" name="alien" type="waiting2" x="38" y="58" width="32" height="32"/>
   <object id="16" name="alien" type="waiting2" x="40" y="96.6667" width="32" height="32"/>
   <object id="17" name="alien" type="waiting2" x="428.667" y="441.333" width="32" height="32"/>
   <object id="18" name="alien" type="waiting2" x="442" y="394.667" width="32" height="32"/>
   <object id="19" name="alien" type="waiting2" x="390" y="439.333" width="32" height="32"/>
   <object id="20" name="alien" type="waiting2" x="446" y="352.667" width="32" height="32"/>
-  <object id="21" name="alien mother" type="waiting2" x="337" y="33.8333" width="78" height="127"/>
+  <object id="21" name="mother" type="waiting2" x="319" y="77.8333" width="112" height="162"/>
  </objectgroup>
- <layer id="3" name="walls" width="32" height="32">
+ <layer id="3" name="walls" width="32" height="32" visible="0">
   <data encoding="base64" compression="zlib">
    eJztl0EOgCAMBD1486k+R/+gz9QLsVm3hFaoRiXZYJAyFNtGpqHr5guadi2iT88lmkW/OrWA2BgT8j2thu3PP6+Rxpgi+CmOmCL4uT3dzZd59nb/ZZ2K5LOzjuSXNranSH4N2ys+1LCVtU47E6yHOI/Fq7Rl79F/GWPoF9ZDnMfiVfJz8Wz9hmN/SMtdz/l7+FpOtuQjK9p/tgbyNdXmW2xb8C35/xX/tfhrwdf+CaP4JZyn8LG9uf5Y+db7apJnDbQtuavm7rbWNdB2A8y1B40=
   </data>

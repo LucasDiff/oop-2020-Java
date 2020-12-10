@@ -39,6 +39,7 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
     public void addedToScene(@NotNull Scene scene) {
         super.addedToScene(scene);
 
+        open = true;
         close();
     }
 
@@ -75,10 +76,10 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
 
     @Override
     public void close() {
-        //if (!open) {
-        //    open();
-        //    return;
-        //}
+        if (!open) {
+            open();
+            return;
+        }
 
         this.getScene().getMessageBus().publish(DOOR_CLOSED, this);
 
