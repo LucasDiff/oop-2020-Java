@@ -45,8 +45,10 @@ public class Door extends AbstractActor implements Usable<Actor>, Openable {
 
     @Override
     public void useWith(Actor actor) {
-        if (!open) {
-            this.open();
+        if (open) {
+            close();
+        } else {
+            open();
         }
     }
 
