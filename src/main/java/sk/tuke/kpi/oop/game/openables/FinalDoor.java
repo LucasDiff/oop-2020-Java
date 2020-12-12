@@ -1,15 +1,15 @@
 package sk.tuke.kpi.oop.game.openables;
 
 import sk.tuke.kpi.gamelib.Actor;
-import sk.tuke.kpi.gamelib.Scene;
 import sk.tuke.kpi.gamelib.graphics.Animation;
-import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
-import sk.tuke.kpi.oop.game.characters.Monster;
-import sk.tuke.kpi.oop.game.items.AccessCard;
+import sk.tuke.kpi.oop.game.CommandAddToScene;
+import sk.tuke.kpi.oop.game.characters.MotherAlien;
+import sk.tuke.kpi.oop.game.items.FinalAccessCard;
 
 public class FinalDoor extends Door {
 
     private boolean monsterReleased;
+
 
     public FinalDoor(String name, Orientation orientation) {
         super(name, orientation);
@@ -28,11 +28,17 @@ public class FinalDoor extends Door {
             return;
         }
 
-        if (!(actor instanceof AccessCard)) {
+        if (!(actor instanceof FinalAccessCard)) {
             return;
         }
 
         open();
+    }
+
+    @Override
+    public void open() {
+        super.open();
+
         if (!monsterReleased) {
             releaseMonster();
         }
@@ -40,8 +46,7 @@ public class FinalDoor extends Door {
 
     public void releaseMonster() {
         monsterReleased = true;
-        Scene scene = getScene();
-        Monster monster = new Monster(100, new RandomlyMoving());
-        monster.addedToScene(scene);
+        MotherAlien motherAlien = new MotherAlien(200);
+        new CommandAddToScene(getScene(), 319, 272).execute(motherAlien);
     }
 }

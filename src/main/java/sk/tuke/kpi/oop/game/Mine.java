@@ -17,25 +17,16 @@ public class Mine extends AbstractActor {
 
     public Mine() {
         setAnimation(new Animation("sprites/mine.png", 16, 16, 0.1f, Animation.PlayMode.LOOP_PINGPONG));
-
-
     }
 
 
     @Override
     public void addedToScene(@NotNull Scene scene) {
         super.addedToScene(scene);
-        // setAnimation(new Animation("sprites/monster.png", 72, 128, 0.1f, Animation.PlayMode.LOOP_PINGPONG));
-
-        //this.setAnimation(new Animation("sprites/monster.png", 216, 128,0.1f, Animation.PlayMode.LOOP_PINGPONG));
-
         this.deadly(scene);
         scene.getMessageBus().subscribeOnce(Door.DOOR_OPENED, a -> {
             setAnimation(new Animation("sprites/barrel.png", 16, 16));
         });
-        //if (this.getBehaviour() != null) {
-        // this.getBehaviour().setUp(this);
-        //}
     }
 
     private void deadly(@NotNull Scene scene) {

@@ -10,8 +10,7 @@ public class CommandAddToScene implements Command<Actor> {
     private int x;
     private int y;
 
-    public CommandAddToScene(Scene scene, int x, int y)
-    {
+    public CommandAddToScene(Scene scene, int x, int y) {
         this.x = x;
         this.y = y;
         this.scene = scene;
@@ -19,8 +18,7 @@ public class CommandAddToScene implements Command<Actor> {
     }
 
     @Override
-    public void execute(Actor actor)
-    {
+    public void execute(Actor actor) {
         scene.addActor(actor, x, y);
     }
 }

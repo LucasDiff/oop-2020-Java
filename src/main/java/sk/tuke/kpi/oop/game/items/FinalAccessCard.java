@@ -21,4 +21,9 @@ public class FinalAccessCard extends AbstractActor implements Collectible, Usabl
     public Class<FinalDoor> getUsingActorClass() {
         return FinalDoor.class;
     }
+
+    @Override
+    public boolean oneTimeUsable() {
+        return true;
+    }
 }

@@ -33,15 +33,11 @@ public class Monster extends AbstractActor implements Alive, Enemy, Movable {
         super.addedToScene(scene);
         setAnimation(new Animation("sprites/monster.png", 72, 128, 0.1f, Animation.PlayMode.LOOP_PINGPONG));
 
-        //this.setAnimation(new Animation("sprites/monster.png", 216, 128,0.1f, Animation.PlayMode.LOOP_PINGPONG));
-
         this.deadly(scene);
+
         scene.getMessageBus().subscribeOnce(Door.DOOR_OPENED, a -> {
             setAnimation(new Animation("sprites/barrel.png", 16, 16));
         });
-        //if (this.getBehaviour() != null) {
-        // this.getBehaviour().setUp(this);
-        //}
     }
 
     private void deadly(@NotNull Scene scene) {
@@ -64,11 +60,8 @@ public class Monster extends AbstractActor implements Alive, Enemy, Movable {
         return scene.getActors().stream()
             .filter(Alive.class::isInstance)
             .filter(this::intersects)
-
             .filter(actor -> !(actor instanceof Enemy))
-
             .filter(actor -> !actor.equals(this))
-
             .findFirst();
     }
 

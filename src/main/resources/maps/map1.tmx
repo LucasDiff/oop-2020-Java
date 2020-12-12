@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="22">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="26">
  <tileset firstgid="1" source="tilesets/ab_tiles_a.tsx"/>
  <tileset firstgid="241" source="tilesets/ab_tiles_c.tsx"/>
  <tileset firstgid="497" source="tilesets/PDGPTileset.tsx"/>
@@ -9,7 +9,7 @@
  <tileset firstgid="3045" source="tilesets/tileset02.tsx"/>
  <layer id="1" name="background" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup id="2" name="actors">
@@ -22,11 +22,11 @@
   <object id="7" name="ammo" type="ammo" x="66.6667" y="448" width="16" height="16"/>
   <object id="8" name="player" type="ripley" x="150" y="416" width="32" height="32"/>
   <object id="9" name="item" type="card" x="225.5" y="305" width="15" height="15.5"/>
-  <object id="10" name="item" type="BlueCard" x="208" y="96" width="13" height="17"/>
-  <object id="11" name="item" type="card" x="463.5" y="449" width="15.5" height="15"/>
-  <object id="12" name="door" type="horizontal" x="114.606" y="270.606"/>
+  <object id="10" name="item" type="card" x="208" y="96" width="13" height="17"/>
+  <object id="11" name="item" type="BlueCard" x="463.5" y="449" width="15.5" height="15"/>
+  <object id="12" name="LockedDoor" type="horizontal" x="114.606" y="270.606"/>
   <object id="13" name="FinalDoor" type="horizontal" x="353.848" y="271.227"/>
-  <object id="14" name="door" type="vertical" x="240.894" y="446.871"/>
+  <object id="14" name="LockedDoor" type="vertical" x="240.894" y="446.871"/>
   <object id="15" name="alien" type="waiting2" x="38" y="58" width="32" height="32"/>
   <object id="16" name="alien" type="waiting2" x="40" y="96.6667" width="32" height="32"/>
   <object id="17" name="alien" type="waiting2" x="428.667" y="441.333" width="32" height="32"/>
@@ -34,8 +34,10 @@
   <object id="19" name="alien" type="waiting2" x="390" y="439.333" width="32" height="32"/>
   <object id="20" name="alien" type="waiting2" x="446" y="352.667" width="32" height="32"/>
   <object id="21" name="mother" type="waiting2" x="319" y="77.8333" width="112" height="162"/>
+  <object id="23" name="LiftSwitch" type="switch" x="351.909" y="32.0151" width="16" height="16"/>
+  <object id="24" name="lift" type="lift" x="432" y="32" width="48" height="48"/>
  </objectgroup>
- <layer id="3" name="walls" width="32" height="32" visible="0">
+ <layer id="3" name="walls" width="32" height="32">
   <data encoding="base64" compression="zlib">
    eJztl0EOgCAMBD1486k+R/+gz9QLsVm3hFaoRiXZYJAyFNtGpqHr5guadi2iT88lmkW/OrWA2BgT8j2thu3PP6+Rxpgi+CmOmCL4uT3dzZd59nb/ZZ2K5LOzjuSXNranSH4N2ys+1LCVtU47E6yHOI/Fq7Rl79F/GWPoF9ZDnMfiVfJz8Wz9hmN/SMtdz/l7+FpOtuQjK9p/tgbyNdXmW2xb8C35/xX/tfhrwdf+CaP4JZyn8LG9uf5Y+db7apJnDbQtuavm7rbWNdB2A8y1B40=
   </data>

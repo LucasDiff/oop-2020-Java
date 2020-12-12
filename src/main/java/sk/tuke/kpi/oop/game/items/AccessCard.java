@@ -21,4 +21,9 @@ public class AccessCard extends AbstractActor implements Collectible, Usable<Loc
     public Class<LockedDoor> getUsingActorClass() {
         return LockedDoor.class;
     }
+
+    @Override
+    public boolean oneTimeUsable() {
+        return true;
+    }
 }

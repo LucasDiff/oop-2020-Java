@@ -39,7 +39,11 @@ public class KeeperController implements KeyboardListener {
             if (actor.getBackpack().getSize() <= 0) {
                 return;
             }
-            new Use<>((Usable<?>) actor.getBackpack().peek()).scheduleForIntersectingWith(actor);
+            Collectible collectible = actor.getBackpack().peek();
+            new Use<>((Usable<?>) collectible).scheduleForIntersectingWith(actor);
+            if (((Usable) collectible).oneTimeUsable()) {
+                actor.getBackpack().remove(collectible);
+            }
         } else if (key.equals(Input.Key.U)) {
             Optional<Actor> usable = actor.getScene().getActors().stream().filter(Usable.class::isInstance).filter(actor::intersects).findFirst();
             usable.ifPresent(actor1 -> new Use<>((Usable<?>) actor1).scheduleForIntersectingWith(actor));

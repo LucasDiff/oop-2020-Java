@@ -10,10 +10,7 @@ import sk.tuke.kpi.oop.game.*;
 import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
 import sk.tuke.kpi.oop.game.builder.Builder;
 import sk.tuke.kpi.oop.game.builder.RipleyBuilder;
-import sk.tuke.kpi.oop.game.characters.Alien;
-import sk.tuke.kpi.oop.game.characters.AngelGhost;
-import sk.tuke.kpi.oop.game.characters.Monster;
-import sk.tuke.kpi.oop.game.characters.Ripley;
+import sk.tuke.kpi.oop.game.characters.*;
 import sk.tuke.kpi.oop.game.controllers.KeeperController;
 import sk.tuke.kpi.oop.game.controllers.MovableController;
 import sk.tuke.kpi.oop.game.controllers.ShooterController;
@@ -97,7 +94,6 @@ public class Map implements SceneListener {
                     return new Box(new AccessCard());
                 case "hammer":
                     return new Box(new Hammer());
-
                 case "ventilator":
                     return new Ventilator();
                 case "ammo":
@@ -108,9 +104,12 @@ public class Map implements SceneListener {
                     return new AngelGhost(50, new RandomlyMoving());
                 case "button":
                     return new Button();
-
                 case "generator":
                     return new Win();
+                case "lift":
+                    return new Lift();
+                case "LiftSwitch":
+                    return new LiftSwitch();
 
                 default:
                     return null;
@@ -186,5 +185,21 @@ public class Map implements SceneListener {
     public void sceneCreated(@NotNull Scene scene) {
         scene.getMessageBus().subscribe(Alien.ALIEN_BORN, action -> aliens++);
         scene.getMessageBus().subscribe(Alien.ALIEN_DIED, action -> aliens--);
+        scene.getMessageBus().subscribe(Alien.ALIEN_DIED, alien -> smallBang(scene, alien));
+        scene.getMessageBus().subscribe(MotherAlien.MOTHER_ALIEN_DIED, motherAlien -> largeBang(scene, motherAlien));
+    }
+
+    private void smallBang(Scene scene, Alien alien) {
+        SmallExplosion explosion = new SmallExplosion();
+        scene.addActor(explosion, alien.getPosX() + 8, alien.getPosY() + 8);
+        explosion.start();
+    }
+
+    private void largeBang(Scene scene, MotherAlien motherAlien) {
+        for (int i = 0; i < 4; i++) {
+            LargeExplosion explosion = new LargeExplosion();
+            scene.addActor(explosion, motherAlien.getPosX() + 32, motherAlien.getPosY() + 32 * (i + 1));
+            explosion.start();
+        }
     }
 }

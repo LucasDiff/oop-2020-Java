@@ -27,55 +27,48 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
     private Firearm firearm;
 
     public static final Topic<Ripley> RIPLEY_DIED = Topic.create("ripley died", Ripley.class);
-    private Animation getNormal()
-    {
+
+    private Animation getNormal() {
         return normal;
     }
 
-    private void setNormal(Animation normal)
-    {
+    private void setNormal(Animation normal) {
         this.normal = normal;
     }
 
     @Override
-    public Backpack getBackpack()
-    {
+    public Backpack getBackpack() {
         return backpack;
     }
 
     @Override
-    public Health getHealth()
-    {
+    public Health getHealth() {
         return health;
     }
 
     @Override
-    public Firearm getFirearm()
-    {
+    public Firearm getFirearm() {
         return firearm;
     }
 
     @Override
-    public void setFirearm(Firearm weapon)
-    {
+    public void setFirearm(Firearm weapon) {
         this.firearm = weapon;
     }
 
     @Override
-    public int getSpeed()
-    {
+    public int getSpeed() {
         return 2;
     }
 
     @Override
-    public void startedMoving(Direction direction)
-    {
+    public void startedMoving(Direction direction) {
         getAnimation().setRotation(direction.getAngle());
         getAnimation().play();
     }
+
     @Override
-    public void addedToScene(@NotNull Scene scene)
-    {
+    public void addedToScene(@NotNull Scene scene) {
         super.addedToScene(scene);
 
         Overlay overlay = scene.getGame().getOverlay();
@@ -87,9 +80,9 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
             })
         ).scheduleOn(scene);
     }
+
     @Override
-    public void stoppedMoving()
-    {
+    public void stoppedMoving() {
         getAnimation().stop();
     }
 

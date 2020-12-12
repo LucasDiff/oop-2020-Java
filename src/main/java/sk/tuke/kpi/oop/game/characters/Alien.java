@@ -73,7 +73,6 @@ public class Alien extends AbstractActor implements Alive, Enemy, Movable {
         setAnimation(new Animation("sprites/alien.png", 32, 32, 0.1f, Animation.PlayMode.LOOP_PINGPONG));
         getAnimation().stop();
 
-
         this.getHealth().onExhaustion(this::die);
     }
 
@@ -137,7 +136,6 @@ public class Alien extends AbstractActor implements Alive, Enemy, Movable {
 
     @Override
     public void startedMoving(Direction direction) {
-
         getAnimation().setRotation(direction.getAngle());
         getAnimation().play();
     }
