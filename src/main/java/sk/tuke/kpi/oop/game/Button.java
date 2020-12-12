@@ -20,19 +20,13 @@ public class Button extends AbstractActor {
 
         super.addedToScene(scene);
 
-        //this.closed(scene);
         scene.getMessageBus().subscribeOnce(Door.DOOR_OPENED, a -> {
             opened(scene);
             scene.getMessageBus().publish(BUTTON_WIN, this);
         });
-        //if (this.getBehaviour() != null) {
-        // this.getBehaviour().setUp(this);
-        //}
     }
 
     private void opened(Scene scene) {
-        // scene.getMessageBus().subscribeOnce(Door.Door_open, a -> {
         setAnimation(new Animation("sprites/button_green.png", 16, 16));
-        // });
     }
 }

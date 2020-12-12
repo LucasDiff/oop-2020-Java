@@ -49,7 +49,11 @@ public class MovableController implements KeyboardListener {
             keyPressedCnt--; // as keyPressed increases the counter we need to compensate for it
             keyPressed(pressedKeys[0]);
         }
-        keyPressedCnt--;
+        if (keyPressedCnt > 0) {
+            keyPressedCnt--;
+        } else {
+            keyPressedCnt = 0;
+        }
     }
 
     @Override
@@ -77,9 +81,10 @@ public class MovableController implements KeyboardListener {
                 action.scheduleFor(actor);
             }
         }
-        pressedKeys[keyPressedCnt] = key;
-
-        keyPressedCnt++;
+        if (keyPressedCnt < 2) {
+            pressedKeys[keyPressedCnt] = key;
+            keyPressedCnt++;
+        }
     }
 
 

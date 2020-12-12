@@ -47,6 +47,6 @@ public class FinalDoor extends Door {
     public void releaseMonster() {
         monsterReleased = true;
         MotherAlien motherAlien = new MotherAlien(200);
-        new CommandAddToScene(getScene(), 319, 272).execute(motherAlien);
+        new CommandAddToScene(getScene(), 319, 280).execute(motherAlien);
     }
 }

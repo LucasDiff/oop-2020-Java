@@ -11,22 +11,22 @@ import sk.tuke.kpi.gamelib.graphics.Overlay;
 import sk.tuke.kpi.gamelib.messages.Topic;
 import sk.tuke.kpi.oop.game.Direction;
 import sk.tuke.kpi.oop.game.Keeper;
+import sk.tuke.kpi.oop.game.Lift;
 import sk.tuke.kpi.oop.game.Movable;
 import sk.tuke.kpi.oop.game.items.Backpack;
 import sk.tuke.kpi.oop.game.weapons.Firearm;
+import sk.tuke.kpi.oop.game.weapons.FuturisticGun;
 import sk.tuke.kpi.oop.game.weapons.Gun;
 
 public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keeper {
 
     private Animation normal;
-
     private Backpack backpack;
-
     private Health health;
-
     private Firearm firearm;
-
     public static final Topic<Ripley> RIPLEY_DIED = Topic.create("ripley died", Ripley.class);
+    public static final Topic<Ripley> RIPLEY_WON = Topic.create("ripley won", Ripley.class);
+
 
     private Animation getNormal() {
         return normal;
@@ -79,6 +79,9 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
                 overlay.drawText(" | AMMO: " + getFirearm().getAmmo(), 250, scene.getGame().getWindowSetup().getHeight() - GameApplication.STATUS_LINE_OFFSET);
             })
         ).scheduleOn(scene);
+
+        scene.getMessageBus().subscribeOnce(FuturisticGun.GUN_FOUND, a -> { getFirearm().setActive(true); });
+        scene.getMessageBus().subscribeOnce(Lift.LIFT_ACTIVATED, a -> { scene.getMessageBus().publish(RIPLEY_WON, this); });
     }
 
     @Override

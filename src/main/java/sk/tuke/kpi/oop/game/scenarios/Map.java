@@ -14,7 +14,6 @@ import sk.tuke.kpi.oop.game.characters.*;
 import sk.tuke.kpi.oop.game.controllers.KeeperController;
 import sk.tuke.kpi.oop.game.controllers.MovableController;
 import sk.tuke.kpi.oop.game.controllers.ShooterController;
-import sk.tuke.kpi.oop.game.controllers.SkuskaController;
 import sk.tuke.kpi.oop.game.items.*;
 import sk.tuke.kpi.oop.game.openables.Door;
 import sk.tuke.kpi.oop.game.openables.FinalDoor;
@@ -22,6 +21,7 @@ import sk.tuke.kpi.oop.game.openables.LockedDoor;
 import sk.tuke.kpi.oop.game.prototype.ProductType;
 import sk.tuke.kpi.oop.game.prototypeJava2.MyFactory;
 import sk.tuke.kpi.oop.game.prototypeJava2.MyProductType;
+import sk.tuke.kpi.oop.game.weapons.FuturisticGun;
 
 import java.util.List;
 
@@ -86,6 +86,8 @@ public class Map implements SceneListener {
                             return new FinalAccessCard();
                         case "hammer":
                             return new Hammer();
+                        case "scissors":
+                            return new Scissors();
                         default:
                             return null;
                     }
@@ -110,6 +112,11 @@ public class Map implements SceneListener {
                     return new Lift();
                 case "LiftSwitch":
                     return new LiftSwitch();
+                case "GiftPackage":
+                    FuturisticGun gun = new FuturisticGun();
+                    GiftPackage giftPackage = new GiftPackage();
+                    giftPackage.setGift(gun);
+                    return giftPackage;
 
                 default:
                     return null;
@@ -139,8 +146,6 @@ public class Map implements SceneListener {
 
         scene.getGame().pushActorContainer(ripley.getBackpack());
         scene.follow(ripley);
-        scene.getInput().registerListener(new SkuskaController(scene));
-
 
         new Loop<>(
             new Invoke<>(() -> {
@@ -158,22 +163,20 @@ public class Map implements SceneListener {
         Builder riplay = new RipleyBuilder();
         sk.tuke.kpi.oop.game.prototype.Factory factory = new sk.tuke.kpi.oop.game.prototype.Factory();
 
+        riplay.stopMove();
 
         scene.getMessageBus().subscribeOnce(Ripley.RIPLEY_DIED, a -> {
             RipleyState.getInstance().saveFile("RIPLEY_DIED", factory.createProduct(ProductType.Defeat).toString());
-            new CommandEndGame(RipleyState.getInstance().loadFile("RIPLEY_DIED")).execute(a);
+            new CommandEndGame(RipleyState.getInstance().loadFile("RIPLEY_DIED"), false).execute(a);
             disposableMovable.dispose();
             disposableKeeper.dispose();
             riplay.stopMove();
             disposableShooter.dispose();
         });
-        riplay.stopMove();
 
-        scene.getMessageBus().subscribeOnce(Button.BUTTON_WIN, a -> {
-            RipleyState.getInstance().saveFile("BUTTON_WIN", factory.createProduct(ProductType.Victory).toString());
-            new CommandEndGame(
-                RipleyState.getInstance().loadFile("BUTTON_WIN")
-            ).execute(a);
+        scene.getMessageBus().subscribeOnce(Ripley.RIPLEY_WON, a -> {
+            RipleyState.getInstance().saveFile("RIPLEY_WON", factory.createProduct(ProductType.Victory).toString());
+            new CommandEndGame(RipleyState.getInstance().loadFile("RIPLEY_WON"), true).execute(a);
             disposableMovable.dispose();
             disposableKeeper.dispose();
             disposableShooter.dispose();

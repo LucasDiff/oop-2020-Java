@@ -28,12 +28,10 @@ public class Observing<T, A extends Actor> implements Behaviour<A> {
             return;
         }
 
-
         Scene scene = actor.getScene();
         if (scene == null) {
             return;
         }
-
 
         scene.getMessageBus().subscribe(topic, (e) -> {
             if (this.predicate.test(e)) {

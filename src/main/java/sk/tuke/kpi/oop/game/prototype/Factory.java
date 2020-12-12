@@ -9,8 +9,8 @@ public class Factory {
 
     public Factory() {
         this.templates = new HashMap<>();
-        this.templates.put(ProductType.Victory, new Product(ProductType.Victory, "You won"));
-        this.templates.put(ProductType.Defeat, new Product(ProductType.Defeat, "You not won"));
+        this.templates.put(ProductType.Victory, new Product(ProductType.Victory, "You won Ripley"));
+        this.templates.put(ProductType.Defeat, new Product(ProductType.Defeat, "You lost Ripley"));
     }
 
     public Product createProduct(ProductType type) {

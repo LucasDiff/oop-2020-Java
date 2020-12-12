@@ -4,14 +4,17 @@ public abstract class Firearm {
 
     private int ammo;
     private int maxAmmo;
+    private boolean active;
 
     public Firearm(int ammo) {
         this(ammo, ammo);
+        active = false;
     }
 
     public Firearm(int ammo, int maxAmmo) {
         this.ammo = ammo;
         this.maxAmmo = maxAmmo;
+        active = false;
     }
 
     public void reload(int newAmmo) {
@@ -24,6 +27,9 @@ public abstract class Firearm {
         if (ammo <= 0) {
             return null;
         }
+        if (!active) {
+            return null;
+        }
 
         ammo = ammo - 1;
 
@@ -32,5 +38,9 @@ public abstract class Firearm {
 
     public int getAmmo() {
         return ammo;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
