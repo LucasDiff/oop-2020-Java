@@ -7,8 +7,9 @@ import sk.tuke.kpi.oop.game.Direction;
 import sk.tuke.kpi.oop.game.Movable;
 import sk.tuke.kpi.oop.game.actions.Move;
 
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class MovableController implements KeyboardListener {
 
@@ -21,29 +22,25 @@ public class MovableController implements KeyboardListener {
 
     private Movable actor;
     private Move<Movable> action;
-    private Map<Input.Key, Direction> keyHistory;
+    private Set<Input.Key> keyHistory;
 
 
     public MovableController(Movable actor) {
         this.actor = actor;
-        keyHistory = new HashMap<>();
+        keyHistory = new HashSet<>();
     }
 
     @Override
     public void keyReleased(@NotNull Input.Key key) {
-        //System.out.println("R " + key.name());
         if (actor == null) {
             return;
         }
+
         if (!keyDirectionMap.containsKey(key)) {
             return;
         }
-        if (action != null) {
-            action.stop();
-            //System.out.println("Stop R " + action.toString());
-        }
 
-        if (keyHistory.containsKey(key)) {
+        if (keyHistory.contains(key)) {
             keyHistory.remove(key);
             computeDirection();
         }
@@ -51,7 +48,6 @@ public class MovableController implements KeyboardListener {
 
     @Override
     public void keyPressed(@NotNull Input.Key key) {
-        //System.out.println("P " + key.name());
         if (actor == null) {
             return;
         }
@@ -60,30 +56,25 @@ public class MovableController implements KeyboardListener {
             return;
         }
 
-        if (action != null) {
-            action.stop();
-            //System.out.println("Stop P " + action.toString());
-        }
-
-        if (!keyHistory.containsKey(key)) {
-            keyHistory.put(key, keyDirectionMap.get(key));
+        if (!keyHistory.contains(key)) {
+            keyHistory.add(key);
             computeDirection();
         }
     }
 
     private void computeDirection() {
+        if (action != null) {
+            action.stop();
+        }
+
         Direction dir = Direction.NONE;
-        for (Input.Key key: keyHistory.keySet()) {
+        for (Input.Key key: keyHistory) {
             dir = dir.combine(keyDirectionMap.get(key));
         }
-        //System.out.println("C " + dir.name());
+
         if (dir != Direction.NONE) {
             action = new Move<>(dir, 100);
             action.scheduleFor(actor);
-            //System.out.println("New Move " + action.toString());
-        } else if (action != null) {
-            action.stop();
-            //System.out.println("Stop C " + action.toString());
         }
     }
 }

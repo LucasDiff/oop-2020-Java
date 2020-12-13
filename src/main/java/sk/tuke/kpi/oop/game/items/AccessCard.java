@@ -7,7 +7,6 @@ import sk.tuke.kpi.oop.game.openables.LockedDoor;
 
 public class AccessCard extends AbstractActor implements Collectible, Usable<LockedDoor> {
 
-
     public AccessCard() {
         setAnimation(new Animation("sprites/key.png", 16, 16));
     }
@@ -15,6 +14,7 @@ public class AccessCard extends AbstractActor implements Collectible, Usable<Loc
     @Override
     public void useWith(LockedDoor actor) {
         actor.unlock();
+
     }
 
     @Override

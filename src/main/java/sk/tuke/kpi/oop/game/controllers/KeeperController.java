@@ -21,6 +21,7 @@ public class KeeperController implements KeyboardListener {
 
     public KeeperController(Keeper actor) {
         this.actor = actor;
+        actor.getScene().getMessageBus().subscribe(Use.USABLE_USED, (a) -> removeFromBackpack(a));
     }
 
 
@@ -46,6 +47,15 @@ public class KeeperController implements KeyboardListener {
             usable.ifPresent(actor1 -> new Use<>((Usable<?>) actor1).scheduleForIntersectingWith(actor));
 
         }
+    }
+
+    private void removeFromBackpack(Actor actor) {
+        if (!(actor instanceof Keeper)) {
+            return;
+        }
+
+        Keeper keeper = (Keeper) actor;
+        keeper.getBackpack().remove(keeper.getBackpack().peek());
     }
 }
 

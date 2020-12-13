@@ -42,7 +42,6 @@ public class Move<M extends Movable> implements Action<M> {
             return;
         }
 
-
         if (firstTime) {
             getActor().startedMoving(direction);
             firstTime = false;

@@ -86,7 +86,6 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
 
     @Override
     public void stoppedMoving() {
-        //System.out.println("Riplay stopped");
         getAnimation().stop();
     }
 
@@ -99,6 +98,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
         health = new Health(1000);
         backpack = new Backpack("Ripley's backpack", 5);
         firearm = new Gun(0, 500);
+        firearm.setActive(false);
 
         health.onExhaustion(() -> {
             if (getScene() != null) {
