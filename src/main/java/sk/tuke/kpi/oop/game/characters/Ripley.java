@@ -95,7 +95,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
         this.setNormal(new Animation("sprites/player.png", 32, 32, 0.1f, Animation.PlayMode.LOOP_PINGPONG));
         this.getNormal().stop();
 
-        health = new Health(1000);
+        health = new Health(250);
         backpack = new Backpack("Ripley's backpack", 5);
         firearm = new Gun(0, 500);
         firearm.setActive(false);

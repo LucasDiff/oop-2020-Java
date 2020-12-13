@@ -3,6 +3,7 @@ package sk.tuke.kpi.oop.game;
 import sk.tuke.kpi.gamelib.Actor;
 import sk.tuke.kpi.gamelib.GameApplication;
 import sk.tuke.kpi.gamelib.Scene;
+import sk.tuke.kpi.oop.game.builder.Message;
 
 public class CommandEndGame implements Command<Actor> {
 
@@ -30,11 +31,16 @@ public class CommandEndGame implements Command<Actor> {
             scene.addActor(animation, 432, 432);
             animation.start();
             scene.removeActor(actor);
+            Message msg = new Message.MessageBuilder("You won Ripley. Congratulations!").setAddNewLines(true).build();
+            msg.display(scene);
         } else {
             scene.removeActor(actor);
             LargeExplosion explosion = new LargeExplosion();
             scene.addActor(explosion, posX, posY);
             explosion.start();
+            Message msg = new Message.MessageBuilder("You lost Ripley. Try once again.").setAddNewLines(true).build();
+            msg.display(scene);
         }
+
     }
 }
