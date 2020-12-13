@@ -9,16 +9,16 @@ import sk.tuke.kpi.gamelib.framework.actions.Loop;
 import sk.tuke.kpi.oop.game.*;
 import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
 import sk.tuke.kpi.oop.game.characters.*;
-import sk.tuke.kpi.oop.game.controllers.ShooterController;
 import sk.tuke.kpi.oop.game.controllers.KeeperController;
 import sk.tuke.kpi.oop.game.controllers.MovableController;
+import sk.tuke.kpi.oop.game.controllers.ShooterController;
 import sk.tuke.kpi.oop.game.items.*;
 import sk.tuke.kpi.oop.game.openables.Door;
 import sk.tuke.kpi.oop.game.openables.FinalDoor;
 import sk.tuke.kpi.oop.game.openables.LockedDoor;
 import sk.tuke.kpi.oop.game.prototype.ProductType;
-import sk.tuke.kpi.oop.game.prototypeJava2.MyFactory;
-import sk.tuke.kpi.oop.game.prototypeJava2.MyProductType;
+import sk.tuke.kpi.oop.game.prototypeJava2.EnemyFactory;
+import sk.tuke.kpi.oop.game.prototypeJava2.EnemyProductType;
 import sk.tuke.kpi.oop.game.weapons.FuturisticGun;
 
 import java.util.List;
@@ -134,8 +134,8 @@ public class Map implements SceneListener {
 
     @Override
     public void sceneInitialized(@NotNull Scene scene) {
-        MyFactory myFactory = new MyFactory();
-        myFactory.createProduct(MyProductType.KeyY);
+        EnemyFactory myFactory = new EnemyFactory();
+        myFactory.createProduct(EnemyProductType.ANGEL_GHOST);
 
 
         Ripley ripley = scene.getFirstActorByType(Ripley.class);
