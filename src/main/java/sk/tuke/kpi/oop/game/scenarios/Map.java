@@ -8,12 +8,10 @@ import sk.tuke.kpi.gamelib.framework.AbstractActor;
 import sk.tuke.kpi.gamelib.framework.actions.Loop;
 import sk.tuke.kpi.oop.game.*;
 import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
-import sk.tuke.kpi.oop.game.builder.Builder;
-import sk.tuke.kpi.oop.game.builder.RipleyBuilder;
 import sk.tuke.kpi.oop.game.characters.*;
+import sk.tuke.kpi.oop.game.controllers.FireController;
 import sk.tuke.kpi.oop.game.controllers.KeeperController;
 import sk.tuke.kpi.oop.game.controllers.MovableController;
-import sk.tuke.kpi.oop.game.controllers.ShooterController;
 import sk.tuke.kpi.oop.game.items.*;
 import sk.tuke.kpi.oop.game.openables.Door;
 import sk.tuke.kpi.oop.game.openables.FinalDoor;
@@ -158,19 +156,15 @@ public class Map implements SceneListener {
 
         Disposable disposableMovable = scene.getInput().registerListener(new MovableController(ripley));
         Disposable disposableKeeper = scene.getInput().registerListener(new KeeperController(ripley));
-        Disposable disposableShooter = scene.getInput().registerListener(new ShooterController(ripley));
+        Disposable disposableShooter = scene.getInput().registerListener(new FireController(ripley));
 
-        Builder riplay = new RipleyBuilder();
         sk.tuke.kpi.oop.game.prototype.Factory factory = new sk.tuke.kpi.oop.game.prototype.Factory();
-
-        riplay.stopMove();
 
         scene.getMessageBus().subscribeOnce(Ripley.RIPLEY_DIED, a -> {
             RipleyState.getInstance().saveFile("RIPLEY_DIED", factory.createProduct(ProductType.Defeat).toString());
             new CommandEndGame(RipleyState.getInstance().loadFile("RIPLEY_DIED"), false).execute(a);
             disposableMovable.dispose();
             disposableKeeper.dispose();
-            riplay.stopMove();
             disposableShooter.dispose();
         });
 
