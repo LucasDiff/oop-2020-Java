@@ -49,9 +49,9 @@ public class MovableController implements KeyboardListener {
             keyPressedCnt--; // as keyPressed increases the counter we need to compensate for it
             keyPressed(pressedKeys[0]);
         }
-        if (keyPressedCnt > 0) {
-            keyPressedCnt--;
-        } else {
+
+        keyPressedCnt--;
+        if (keyPressedCnt < 0) {
             keyPressedCnt = 0;
         }
     }

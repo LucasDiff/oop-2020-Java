@@ -8,13 +8,13 @@ public abstract class Firearm {
 
     public Firearm(int ammo) {
         this(ammo, ammo);
-        active = false;
+        active = true;
     }
 
     public Firearm(int ammo, int maxAmmo) {
         this.ammo = ammo;
         this.maxAmmo = maxAmmo;
-        active = false;
+        active = true;
     }
 
     public void reload(int newAmmo) {
