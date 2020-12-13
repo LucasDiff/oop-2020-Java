@@ -9,7 +9,7 @@ import sk.tuke.kpi.gamelib.framework.actions.Loop;
 import sk.tuke.kpi.oop.game.*;
 import sk.tuke.kpi.oop.game.behaviours.RandomlyMoving;
 import sk.tuke.kpi.oop.game.characters.*;
-import sk.tuke.kpi.oop.game.controllers.FireController;
+import sk.tuke.kpi.oop.game.controllers.ShooterController;
 import sk.tuke.kpi.oop.game.controllers.KeeperController;
 import sk.tuke.kpi.oop.game.controllers.MovableController;
 import sk.tuke.kpi.oop.game.items.*;
@@ -156,7 +156,7 @@ public class Map implements SceneListener {
 
         Disposable disposableMovable = scene.getInput().registerListener(new MovableController(ripley));
         Disposable disposableKeeper = scene.getInput().registerListener(new KeeperController(ripley));
-        Disposable disposableShooter = scene.getInput().registerListener(new FireController(ripley));
+        Disposable disposableShooter = scene.getInput().registerListener(new ShooterController(ripley));
 
         sk.tuke.kpi.oop.game.prototype.Factory factory = new sk.tuke.kpi.oop.game.prototype.Factory();
 

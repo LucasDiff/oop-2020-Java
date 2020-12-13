@@ -10,11 +10,11 @@ import sk.tuke.kpi.oop.game.actions.Fire;
 import sk.tuke.kpi.oop.game.characters.Armed;
 
 
-public class FireController implements KeyboardListener {
+public class ShooterController implements KeyboardListener {
 
     private Armed armed;
 
-    public FireController(Armed armed) {
+    public ShooterController(Armed armed) {
         this.armed = armed;
     }
 
