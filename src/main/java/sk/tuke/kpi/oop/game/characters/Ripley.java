@@ -86,6 +86,7 @@ public class Ripley extends AbstractActor implements Armed, Movable, Alive, Keep
 
     @Override
     public void stoppedMoving() {
+        //System.out.println("Riplay stopped");
         getAnimation().stop();
     }
 

@@ -21,7 +21,6 @@ public enum Direction {
     Direction(int dx, int dy) {
         this.dx = dx;
         this.dy = dy;
-
     }
 
     public int getDx() {
